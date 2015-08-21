@@ -1,0 +1,35 @@
+Applications Memory Usage (kB):
+Uptime: 59505775 Realtime: 106657791
+
+** MEMINFO in pid 18767 [cifrasong.cifrasong] **
+                   Pss  Private  Private  Swapped     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------
+  Native Heap     5481     5444        0     1204     8340     7194      653
+  Dalvik Heap    10755    10660        0     5380    22630    17363     5267
+ Dalvik Other      572      572        0        0                           
+        Stack      180      180        0        0                           
+    Other dev     8165     8160        4        0                           
+     .so mmap     1842      360      444     1308                           
+    .apk mmap      247        0       68        0                           
+    .ttf mmap      156        0       96        0                           
+    .dex mmap     1208        0     1204        0                           
+    code mmap     2392        0      744        0                           
+   image mmap     1663      972       12      180                           
+   Other mmap       36        4        4        0                           
+     Graphics    18432    18432        0        0                           
+      Unknown      363      352        0       44                           
+        TOTAL    51492    45136     2576     8116    30970    24557     5920
+ 
+ Objects
+               Views:      398         ViewRootImpl:        1
+         AppContexts:        4           Activities:        2
+              Assets:        2        AssetManagers:        2
+       Local Binders:       18        Proxy Binders:       21
+    Death Recipients:        0
+     OpenSSL Sockets:        0
+ 
+ SQL
+         MEMORY_USED:        0
+  PAGECACHE_OVERFLOW:        0          MALLOC_SIZE:        0
+ 

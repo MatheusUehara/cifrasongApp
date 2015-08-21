@@ -1,0 +1,87 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cifrasong.usuario.gui.SobreAct"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_below="@+id/tool_bar"
+        android:layout_centerHorizontal="true"
+        android:elevation="2dp"
+        android:background="@color/primary"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView3"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="top"
+        android:foregroundGravity="center">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Equipe Desenvolvedora :"
+                android:id="@+id/textView3"
+                android:layout_below="@+id/imageView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Matheus Uehara "
+                android:id="@+id/textView2"
+                android:layout_below="@+id/textView3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35dp"
+                android:layout_gravity="center_horizontal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Igor Gomes"
+                android:id="@+id/textView4"
+                android:layout_below="@+id/textView2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Raissa Brizeno"
+                android:id="@+id/textView5"
+                android:layout_below="@+id/textView4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

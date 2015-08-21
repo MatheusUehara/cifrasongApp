@@ -1,0 +1,90 @@
+Applications Graphics Acceleration Info:
+Uptime: 59540769 Realtime: 106692786
+
+** Graphics info for pid 18767 [cifrasong.cifrasong] **
+
+Recent DisplayList operations
+DrawPatch
+DrawCircle
+DrawColor
+DrawPatch
+DrawRect
+Save
+DrawRenderNode
+  DrawRenderNode
+    DrawRect
+  DrawRenderNode
+    Save
+    ClipRect
+    DrawRenderNode
+      DrawRenderNode
+        DrawRenderNode
+          DrawBitmapRect
+        DrawRenderNode
+          DrawRenderNode
+          DrawRenderNode
+            DrawRenderNode
+              Save
+              ClipRect
+              DrawPatch
+              SaveLayer
+              Translate
+              DrawCircle
+              Translate
+              SaveLayer
+              DrawColor
+              DrawPatch
+              RestoreToCount
+            Save
+            ClipRect
+            Translate
+            DrawRenderNode
+            RestoreToCount
+          DrawRenderNode
+          DrawRenderNode
+          DrawRenderNode
+          DrawRenderNode
+    RestoreToCount
+  DrawRenderNode
+  DrawRenderNode
+RestoreToCount
+DrawRect
+DrawBitmapRect
+DrawPatch
+DrawCircle
+DrawColor
+DrawPatch
+
+Caches:
+Current memory usage / total memory usage (bytes):
+  TextureCache          2831904 / 25165824
+  LayerCache                  0 / 16777216 (numLayers = 0)
+  Garbage layers              0
+  Active layers               0
+  RenderBufferCache           0 /  2097152
+  GradientCache          131072 /   524288
+  PathCache                   0 / 10485760
+  TessellationCache        4464 /  1048576
+  TextDropShadowCache     27632 /  2097152
+  PatchCache               7040 /   131072
+  FontRenderer 0 A8      524288 /   524288
+  FontRenderer 0 RGBA         0 /        0
+  FontRenderer 0 total   524288 /   524288
+Other:
+  FboCache                    0 /        0
+Total memory usage:
+  3526400 bytes, 3.36 MB
+
+Profile data in ms:
+
+	cifrasong.cifrasong/cifrasong.usuario.gui.LoginAct/android.view.ViewRootImpl@3ef5a2a1 (visibility=0)
+View hierarchy:
+
+  cifrasong.cifrasong/cifrasong.usuario.gui.LoginAct/android.view.ViewRootImpl@3ef5a2a1
+  14 views, 15,66 kB of display lists
+
+
+Total ViewRootImpl: 1
+Total Views:        14
+Total DisplayList:  15,66 kB
+

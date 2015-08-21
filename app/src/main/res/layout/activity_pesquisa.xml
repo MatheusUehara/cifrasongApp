@@ -1,0 +1,128 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cifrasong.usuario.gui.SobreAct"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_below="@+id/tool_bar"
+        android:layout_centerHorizontal="true"
+        android:elevation="2dp"
+        android:background="@color/primary"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView3"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="top"
+        android:foregroundGravity="center">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <!--
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Selecione o site no qual deseja procurar"
+                android:textColor="#ffffffff"
+                android:id="@+id/textView6" />
+
+            <Spinner
+                android:id="@+id/Spinner01"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+                s
+            -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Digite o artista ou banda"
+
+                android:id="@+id/textView56" />
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textCursorDrawable="@drawable/cursor"
+                android:inputType="textEmailAddress"
+                android:completionThreshold="1"
+                android:id="@+id/nomeArtista"
+
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView3" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Digite sua Música"
+
+                android:id="@+id/textView4" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/nomeMusica"
+
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textCursorDrawable="@drawable/cursor"
+                android:layout_below="@+id/textView3" />
+
+            
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_launcher_pesquisar"
+                android:id="@+id/pesquisar"
+                android:layout_below="@+id/scrollView"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+            />
+
+            <ProgressBar
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:max="100"
+                android:id="@+id/progress"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/texto"
+                android:layout_width="fill_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_below="@id/progress"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,35 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:CifraSong="http://schemas.android.com/apk/res-auto"
+    tools:context="cifrasong.cifra.gui.ExibeCifraAct" >
+
+    <item
+        android:id="@+id/excluir"
+        android:title="Excluir"
+        android:orderInCategory="3"
+        CifraSong:showAsAction="ifRoom"
+        android:icon="@drawable/ic_launcher_delete"
+        />
+
+    <item android:id="@+id/favoritar"
+        android:title="Favoritar"
+        android:orderInCategory="3"
+        CifraSong:showAsAction="ifRoom"
+        android:icon="@drawable/ic_launcher_favoritar"
+        />
+
+    <item android:id="@+id/share"
+        android:title="Compartilhar"
+        android:orderInCategory="3"
+        CifraSong:showAsAction="ifRoom"
+        android:icon="@drawable/ic_launcher_share"
+        />
+
+    <item android:id="@+id/rolar"
+        android:title="Rolar"
+        android:orderInCategory="3"
+        CifraSong:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_rolar"
+        />
+</menu>

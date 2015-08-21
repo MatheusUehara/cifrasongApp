@@ -1,0 +1,27 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:CifraSong="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:id="@+id/excluir"
+        android:title="Excluir"
+        android:orderInCategory="3"
+        CifraSong:showAsAction="ifRoom"
+        android:icon="@drawable/ic_launcher_delete"
+        />
+
+    <item android:id="@+id/share"
+        android:title="Compartilhar"
+        android:orderInCategory="3"
+        CifraSong:showAsAction="ifRoom"
+        android:icon="@drawable/ic_launcher_share"
+        />
+
+    <item android:id="@+id/rolar"
+        android:title="Rolar"
+        android:orderInCategory="3"
+        CifraSong:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_rolar"
+        />
+</menu>

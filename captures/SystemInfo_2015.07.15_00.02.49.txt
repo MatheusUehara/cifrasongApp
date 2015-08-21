@@ -1,0 +1,41 @@
+TASK cifrasong.cifrasong id=9622
+  ACTIVITY cifrasong.cifrasong/cifrasong.usuario.gui.LoginAct 241c295b pid=18767
+    Local Activity 15a98bd8 State:
+      mResumed=false mStopped=true mFinished=false
+      mLoadersStarted=false
+      mChangingConfigurations=false
+      mCurrentConfig={1.0 724mcc2mnc pt_BR ldltr sw360dp w360dp h567dp 320dpi nrml port finger -keyb/v/h -nav/h s.64?spn}
+    FragmentManager misc state:
+      mActivity=cifrasong.usuario.gui.LoginAct@15a98bd8
+      mContainer=android.app.Activity$1@22dc8b31
+      mCurState=3 mStateSaved=true mDestroyed=false
+    ViewRoot:
+      mAdded=true mRemoved=false
+      mConsumeBatchedInputScheduled=false
+      mConsumeBatchedInputImmediatelyScheduled=false
+      mPendingInputEventCount=0
+      mProcessInputEventsScheduled=false
+      mTraversalScheduled=false
+      android.view.ViewRootImpl$NativePreImeInputStage: mQueueLength=0
+      android.view.ViewRootImpl$ImeInputStage: mQueueLength=0
+      android.view.ViewRootImpl$NativePostImeInputStage: mQueueLength=0
+    Choreographer:
+      mFrameScheduled=false
+      mLastFrameTime=59413815 (38725 ms ago)
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{23366216 V.E..... R....... 0,0-720,1280}
+        android.widget.LinearLayout{30ea797 V.ED.... ........ 0,0-720,1184}
+          android.view.ViewStub{3a178d84 G.E..... ......I. 0,0-0,0 #1020370}
+          android.widget.FrameLayout{213da96d V.E..... ........ 0,50-720,1184 #1020002 android:id/content}
+            android.widget.RelativeLayout{282e89a2 V.E..... ........ 0,0-720,1134}
+              android.widget.LinearLayout{1f0c2633 V.ED.... ........ 0,0-720,1134}
+                android.widget.TextView{2a41fdf0 V.ED.... ........ 258,309-462,358 #7f080073 app:id/textView_login}
+                android.widget.EditText{31186f69 VFED..CL .F...... 0,358-720,441 #7f080057 app:id/login}
+                android.widget.TextView{2d8f9dee V.ED.... ........ 310,461-410,510 #7f080074 app:id/textView_senha}
+                android.widget.EditText{3c58f28f VFED..CL ........ 0,510-720,593 #7f08005b app:id/senha}
+                android.widget.Button{3561091c VFED..C. ........ 195,613-524,709 #7f080075 app:id/entrar}
+                android.widget.Button{32bf9925 VFED..C. ........ 195,729-524,825 #7f08005e app:id/registrar}
+        android.view.View{13dbaafa V.ED.... ........ 0,0-720,50 #102002f android:id/statusBarBackground}
+        android.view.View{19fc28ab V.ED.... ........ 0,1184-720,1280 #1020030 android:id/navigationBarBackground}
+    Looper (main, tid 1) {4039b08}
+      (Total messages: 0, idling=false, quitting=false)

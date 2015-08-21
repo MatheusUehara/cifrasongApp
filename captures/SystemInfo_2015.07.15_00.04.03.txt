@@ -1,0 +1,231 @@
+AGGREGATED OVER LAST 24 HOURS:
+System memory usage:
+  SOff/Norm: 24 samples:
+    Cached: 119MB min, 199MB avg, 285MB max
+    Free: 23MB min, 36MB avg, 73MB max
+    ZRam: 41MB min, 51MB avg, 71MB max
+    Kernel: 43MB min, 45MB avg, 49MB max
+    Native: 20MB min, 25MB avg, 31MB max
+       Low : 3 samples:
+    Cached: 146MB min, 150MB avg, 153MB max
+    Free: 23MB min, 33MB avg, 38MB max
+    ZRam: 62MB min, 64MB avg, 65MB max
+    Kernel: 44MB min, 46MB avg, 50MB max
+    Native: 22MB min, 23MB avg, 25MB max
+       Crit: 4 samples:
+    Cached: 125MB min, 127MB avg, 133MB max
+    Free: 26MB min, 32MB avg, 39MB max
+    ZRam: 65MB min, 74MB avg, 78MB max
+    Kernel: 43MB min, 45MB avg, 49MB max
+    Native: 20MB min, 22MB avg, 25MB max
+  SOn /Norm: 39 samples:
+    Cached: 126MB min, 178MB avg, 277MB max
+    Free: 22MB min, 42MB avg, 150MB max
+    ZRam: 31MB min, 51MB avg, 62MB max
+    Kernel: 43MB min, 47MB avg, 52MB max
+    Native: 22MB min, 25MB avg, 36MB max
+       Low : 14 samples:
+    Cached: 129MB min, 143MB avg, 183MB max
+    Free: 23MB min, 37MB avg, 71MB max
+    ZRam: 33MB min, 56MB avg, 64MB max
+    Kernel: 43MB min, 46MB avg, 50MB max
+    Native: 22MB min, 24MB avg, 29MB max
+       Crit: 12 samples:
+    Cached: 76MB min, 124MB avg, 182MB max
+    Free: 24MB min, 49MB avg, 247MB max
+    ZRam: 46MB min, 67MB avg, 82MB max
+    Kernel: 43MB min, 45MB avg, 55MB max
+    Native: 21MB min, 24MB avg, 37MB max
+
+Per-Package Stats:
+  * cifrasong.cifrasong / u0a6 / v1:
+      * cifrasong.cifrasong / u0a6 / v1:
+               TOTAL: 15% (3,5MB-45MB-61MB/2,6MB-42MB-58MB over 85)
+                 Top: 15% (3,5MB-45MB-61MB/2,6MB-42MB-58MB over 85)
+          (Last Act): 2,1% (17MB-22MB-33MB/15MB-19MB-30MB over 4)
+            (Cached): 0,33% (3,2MB-9,8MB-16MB/2,3MB-8,6MB-15MB over 2)
+
+Summary:
+  * cifrasong.cifrasong / u0a6 / v1:
+           TOTAL: 15% (3,5MB-45MB-61MB/2,6MB-42MB-58MB over 85)
+             Top: 15% (3,5MB-45MB-61MB/2,6MB-42MB-58MB over 85)
+      (Last Act): 2,1% (17MB-22MB-33MB/15MB-19MB-30MB over 4)
+        (Cached): 0,33% (3,2MB-9,8MB-16MB/2,3MB-8,6MB-15MB over 2)
+
+Run time Stats:
+  SOff/Norm: +7h12m24s209ms
+       Low : +14m49s328ms
+       Crit: +36m58s294ms
+  SOn /Norm: +4h45m3s794ms
+       Low : +20m34s606ms
+       Crit: +51m32s476ms
+      TOTAL: +14h1m22s707ms
+
+Memory usage:
+  Kernel : 46MB (288 samples)
+  Native : 25MB (288 samples)
+  Persist: 149MB (1618 samples)
+  Top    : 101MB (1616 samples)
+  ImpFg  : 91MB (2925 samples)
+  ImpBg  : 14MB (2491 samples)
+  Service: 150MB (7502 samples)
+  Receivr: 314KB (8263 samples)
+  Home   : 18MB (939 samples)
+  LastAct: 24MB (2331 samples)
+  CchAct : 8,1MB (539 samples)
+  CchCAct: 361KB (256 samples)
+  CchEmty: 55MB (4677 samples)
+  Cached : 182MB (288 samples)
+  Free   : 39MB (288 samples)
+  Z-Ram   : 53MB (288 samples)
+  TOTAL  : 0,93GB
+  ServRst: 1,9MB (9681 samples)
+
+          Start time: 2015-07-13 22:25:37
+  Total elapsed time: +1d1h38m27s585ms (partial) libart.so
+
+AGGREGATED OVER LAST 3 HOURS:
+System memory usage:
+  SOff/Norm: 7 samples:
+    Cached: 128MB min, 238MB avg, 285MB max
+    Free: 23MB min, 41MB avg, 68MB max
+    ZRam: 44MB min, 52MB avg, 71MB max
+    Kernel: 44MB min, 44MB avg, 45MB max
+    Native: 20MB min, 22MB avg, 24MB max
+       Crit: 1 samples:
+    Cached: 127MB min, 127MB avg, 127MB max
+    Free: 39MB min, 39MB avg, 39MB max
+    ZRam: 77MB min, 77MB avg, 77MB max
+    Kernel: 43MB min, 43MB avg, 43MB max
+    Native: 20MB min, 20MB avg, 20MB max
+  SOn /Norm: 4 samples:
+    Cached: 149MB min, 200MB avg, 277MB max
+    Free: 26MB min, 42MB avg, 73MB max
+    ZRam: 45MB min, 49MB avg, 54MB max
+    Kernel: 44MB min, 46MB avg, 49MB max
+    Native: 22MB min, 24MB avg, 25MB max
+       Crit: 2 samples:
+    Cached: 122MB min, 128MB avg, 134MB max
+    Free: 27MB min, 30MB avg, 33MB max
+    ZRam: 69MB min, 70MB avg, 71MB max
+    Kernel: 44MB min, 44MB avg, 44MB max
+    Native: 21MB min, 22MB avg, 22MB max
+
+Per-Package Stats:
+  * cifrasong.cifrasong / u0a6 / v1:
+      * cifrasong.cifrasong / u0a6 / v1:
+               TOTAL: 84% (21MB-47MB-61MB/19MB-43MB-58MB over 70)
+                 Top: 84% (21MB-47MB-61MB/19MB-43MB-58MB over 70)
+          (Last Act): 4,9% (17MB-25MB-33MB/15MB-22MB-30MB over 2)
+            (Cached): 2,3% (3,2MB-9,8MB-16MB/2,3MB-8,6MB-15MB over 2)
+
+Summary:
+  * cifrasong.cifrasong / u0a6 / v1:
+           TOTAL: 84% (21MB-47MB-61MB/19MB-43MB-58MB over 70)
+             Top: 84% (21MB-47MB-61MB/19MB-43MB-58MB over 70)
+      (Last Act): 4,9% (17MB-25MB-33MB/15MB-22MB-30MB over 2)
+        (Cached): 2,3% (3,2MB-9,8MB-16MB/2,3MB-8,6MB-15MB over 2)
+
+Run time Stats:
+  SOff/Norm: +39m25s519ms
+       Crit: +15m16s920ms
+  SOn /Norm: +52m29s179ms
+       Low : +1s906ms
+       Crit: +11m29s328ms
+      TOTAL: +1h58m42s852ms
+
+Memory usage:
+  Kernel : 45MB (95 samples)
+  Native : 23MB (95 samples)
+  Persist: 151MB (420 samples)
+  Top    : 52MB (286 samples)
+  ImpFg  : 73MB (723 samples)
+  ImpBg  : 14MB (171 samples)
+  Service: 154MB (1559 samples)
+  Receivr: 341KB (949 samples)
+  Home   : 22MB (154 samples)
+  LastAct: 40MB (67 samples)
+  CchAct : 408KB (53 samples)
+  CchCAct: 9,3KB (173 samples)
+  CchEmty: 50MB (720 samples)
+  Cached : 213MB (95 samples)
+  Free   : 41MB (95 samples)
+  Z-Ram   : 51MB (95 samples)
+  TOTAL  : 0,91GB
+  ServRst: 230KB (581 samples)
+
+          Start time: 2015-07-14 21:44:20
+  Total elapsed time: +2h19m45s568ms (partial) libart.so
+
+CURRENT STATS:
+System memory usage:
+  SOff/Norm: 7 samples:
+    Cached: 128MB min, 238MB avg, 285MB max
+    Free: 23MB min, 41MB avg, 68MB max
+    ZRam: 44MB min, 52MB avg, 71MB max
+    Kernel: 44MB min, 44MB avg, 45MB max
+    Native: 20MB min, 22MB avg, 24MB max
+       Crit: 1 samples:
+    Cached: 127MB min, 127MB avg, 127MB max
+    Free: 39MB min, 39MB avg, 39MB max
+    ZRam: 77MB min, 77MB avg, 77MB max
+    Kernel: 43MB min, 43MB avg, 43MB max
+    Native: 20MB min, 20MB avg, 20MB max
+  SOn /Norm: 4 samples:
+    Cached: 149MB min, 200MB avg, 277MB max
+    Free: 26MB min, 42MB avg, 73MB max
+    ZRam: 45MB min, 49MB avg, 54MB max
+    Kernel: 44MB min, 46MB avg, 49MB max
+    Native: 22MB min, 24MB avg, 25MB max
+       Crit: 2 samples:
+    Cached: 122MB min, 128MB avg, 134MB max
+    Free: 27MB min, 30MB avg, 33MB max
+    ZRam: 69MB min, 70MB avg, 71MB max
+    Kernel: 44MB min, 44MB avg, 44MB max
+    Native: 21MB min, 22MB avg, 22MB max
+
+Per-Package Stats:
+  * cifrasong.cifrasong / u0a6 / v1:
+      * cifrasong.cifrasong / u0a6 / v1:
+               TOTAL: 84% (21MB-47MB-61MB/19MB-43MB-58MB over 70)
+                 Top: 84% (21MB-47MB-61MB/19MB-43MB-58MB over 70)
+          (Last Act): 4,9% (17MB-25MB-33MB/15MB-22MB-30MB over 2)
+            (Cached): 2,3% (3,2MB-9,8MB-16MB/2,3MB-8,6MB-15MB over 2)
+
+Summary:
+  * cifrasong.cifrasong / u0a6 / v1:
+           TOTAL: 84% (21MB-47MB-61MB/19MB-43MB-58MB over 70)
+             Top: 84% (21MB-47MB-61MB/19MB-43MB-58MB over 70)
+      (Last Act): 4,9% (17MB-25MB-33MB/15MB-22MB-30MB over 2)
+        (Cached): 2,3% (3,2MB-9,8MB-16MB/2,3MB-8,6MB-15MB over 2)
+
+Run time Stats:
+  SOff/Norm: +39m25s292ms (running)
+       Crit: +15m16s920ms
+  SOn /Norm: +52m29s179ms
+       Low : +1s906ms
+       Crit: +11m29s328ms
+      TOTAL: +1h58m42s625ms
+
+Memory usage:
+  Kernel : 45MB (95 samples)
+  Native : 23MB (95 samples)
+  Persist: 151MB (420 samples)
+  Top    : 52MB (286 samples)
+  ImpFg  : 73MB (723 samples)
+  ImpBg  : 14MB (171 samples)
+  Service: 154MB (1559 samples)
+  Receivr: 341KB (949 samples)
+  Home   : 22MB (154 samples)
+  LastAct: 40MB (67 samples)
+  CchAct : 408KB (53 samples)
+  CchCAct: 9,3KB (173 samples)
+  CchEmty: 50MB (720 samples)
+  Cached : 213MB (95 samples)
+  Free   : 41MB (95 samples)
+  Z-Ram   : 51MB (95 samples)
+  TOTAL  : 0,91GB
+  ServRst: 230KB (581 samples)
+
+          Start time: 2015-07-14 21:44:20
+  Total elapsed time: +2h19m45s610ms (partial) libart.so
