@@ -3,6 +3,7 @@ package cifrasong.usuario.gui;
 /**
  * Created by Uehara on 11/07/2015.
  */
+
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import cifrasong.R;
 
 /**
@@ -83,8 +85,6 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.ViewHolder
         this.context = passedContext;
 
     }
-
-
 
     //Below first we ovverride the method onCreateViewHolder which is called when the ViewHolder is
     //Created, In this method we inflate the menu_item_rowm_row.xml layout if the viewType is Type_ITEM or else we inflate menu_header.xmlr.xml

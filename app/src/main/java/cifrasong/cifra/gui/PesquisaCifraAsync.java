@@ -1,6 +1,7 @@
 package cifrasong.cifra.gui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.Gravity;
@@ -28,14 +29,16 @@ public class PesquisaCifraAsync extends AsyncTask <Void, Object, List> {
     private ProgressBar progressBar;
     private TextView texto;
     private int total = 0;
-    private static int PROGRESSO = 25;
+    private static int PROGRESSO = 1;
     private Button exibir;
+    private Context context;
 
     public PesquisaCifraAsync(Context context, ProgressBar progressBar, TextView texto ,String endereco , Button exibir) {
         this.progressBar = progressBar;
         this.texto = texto;
         this.endereco = endereco;
         this.exibir = exibir;
+        this.context = context;
     }
 
     public PesquisaCifraAsync(Context context,String endereco) {
@@ -78,10 +81,10 @@ public class PesquisaCifraAsync extends AsyncTask <Void, Object, List> {
             if (conteudo!= "") {
                 ExibeCifraPesquisaAct.cifraMusica = conteudo;
                 try {
-                    Thread.sleep(1000);
-                    for (int i=0; i<4; i++) {
+                    Thread.sleep(50);
+                    for (int i=0; i<100; i++) {
                         publishProgress();
-                        Thread.sleep(1000);
+                        Thread.sleep(50);
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -107,13 +110,13 @@ public class PesquisaCifraAsync extends AsyncTask <Void, Object, List> {
 
     @Override
     protected void onPostExecute(List result) {
+        super.onPostExecute(result);
         if (ExibeCifraPesquisaAct.cifraMusica!= null){
-            exibir.setClickable(true);
-            progressBar.setVisibility(View.INVISIBLE);//false
-            texto.setText("Tarefa concluída toque novamente em Pesquisar para visualizar sua Cifra.");
-            texto.setGravity(Gravity.CENTER_HORIZONTAL);
-            super.onPostExecute(result);
+            Intent i = new Intent();
+            i.setClass(context, ExibeCifraPesquisaAct.class);
+            context.startActivity(i);
         }else{
+            progressBar.setVisibility(View.INVISIBLE);
             exibir.setClickable(true);
             texto.setText("Verifique o nome da Musica digitada e sua conexão com a Internet.");
             texto.setGravity(Gravity.CENTER_HORIZONTAL);

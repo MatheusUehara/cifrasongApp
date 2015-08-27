@@ -6,22 +6,23 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!-- Permissão para acessar a área de memória externa -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Permissão pra ler a memoria externa-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <!-- Permissão para acessar a câmera diretamente -->
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
         <activity
             android:name=".usuario.gui.LoginAct"
             android:configChanges="orientation"
             android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,18 +42,21 @@
             android:label="Minhas Cifras"
             android:screenOrientation="portrait" >
         </fragment>
+
         <activity
             android:name=".cifra.gui.PesquisaArtistaAct"
             android:configChanges="orientation"
             android:label="Cifras do Artista"
             android:screenOrientation="portrait" >
         </activity>
+
         <fragment
             android:name=".cifra.gui.FavoritoAct"
             android:configChanges="orientation"
             android:label="Favoritos"
             android:screenOrientation="portrait" >
         </fragment>
+
         <activity
             android:name=".cifra.gui.PesquisaAct"
             android:configChanges="orientation"
@@ -60,8 +64,8 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".usuario.gui.SobreAct"
-            android:label="@string/title_activity_sobre">
+            android:name=".usuario.gui.ContatoAct"
+            android:label="@string/title_activity_contato" >
         </activity>
         <activity
             android:name=".usuario.gui.EditarDadosAct"
@@ -83,35 +87,33 @@
         </activity>
         <activity
             android:name=".cifra.gui.ExibeCifraFavoritaAct"
-            android:label="@string/app_name"
-            >
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name=".cifra.gui.ExibeCifraPesquisaAct"
-            android:label="@string/app_name"
-            >
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name=".cifra.gui.ExibeCifraAct"
-            android:label="@string/app_name"
-             >
+            android:label="@string/app_name" >
         </activity>
-
         <activity
             android:name=".usuario.gui.MenuActivity"
             android:label="@string/title_activity_menu" >
         </activity>
-
         <activity
             android:name=".usuario.gui.SplashAct"
             android:label="@string/title_activity_menu" >
             <intent-filter>
-                <action
-                    android:name="android.intent.action.MAIN" />
-                <category
-                    android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".cifra.gui.GaleriaAct"
+            android:label="@string/title_activity_galeria" >
+        </activity>
     </application>
+
 </manifest>

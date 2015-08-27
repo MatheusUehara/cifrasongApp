@@ -1,7 +1,5 @@
 package cifrasong.cifra.gui;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,7 +27,6 @@ import cifrasong.usuario.gui.MenuActivity;
 public class PesquisaArtistaAct extends android.support.v7.app.AppCompatActivity {
 
     final CifraService negocio = new CifraService(PesquisaArtistaAct.this);
-    private ProgressDialog progress;
 
     Toolbar toolbar;
 
@@ -84,45 +81,10 @@ public class PesquisaArtistaAct extends android.support.v7.app.AppCompatActivity
                 PesquisaCifraAsync pesquisa = new PesquisaCifraAsync(PesquisaArtistaAct.this, progress, texto, negocio.montaLink(cifraSelecionada.getArtista() + "/" + cifraSelecionada.getNome()), button);
                 ExibeCifraPesquisaAct.cifraNome = cifraSelecionada.getNome();
                 pesquisa.execute();
-
-                download(view);
-
-                Intent intent = new Intent(PesquisaArtistaAct.this, ExibeCifraPesquisaAct.class);
-                startActivity(intent);
-
             }
         });
     }
 
-    public void download(View view){
-        progress=new ProgressDialog(this);
-        progress.setMessage("Baixando Cifra");
-        progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progress.setIndeterminate(true);
-        progress.setProgress(0);
-        progress.show();
-
-        final int totalProgressTime = 100;
-        final Thread t = new Thread() {
-            @Override
-            public void run() {
-                int jumpTime = 0;
-
-                while(jumpTime < totalProgressTime) {
-                    try {
-                        sleep(200);
-                        jumpTime += 5;
-                        progress.setProgress(jumpTime);
-                    }
-                    catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-                }
-            }
-        };
-        t.start();
-    }
 
     private class CifrasAdapter extends ArrayAdapter<Cifra>{
         private Context ctx;

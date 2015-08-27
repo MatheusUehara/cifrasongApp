@@ -1,49 +1,28 @@
 package cifrasong.usuario.gui;
 
-import com.getbase.floatingactionbutton.FloatingActionButton;
-
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
-
-import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.view.View.OnClickListener;
-
-import android.os.Bundle;
-import android.view.View;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-
 import android.view.MotionEvent;
-import android.widget.Toast;
+import android.view.View;
+import android.view.View.OnClickListener;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import cifrasong.R;
+import cifrasong.cifra.gui.GaleriaAct;
 import cifrasong.cifra.gui.PesquisaAct;
 import cifrasong.usuario.dominio.Session;
 import cifrasong.util.material.SlidingTabLayout;
@@ -87,11 +66,8 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
     SlidingTabLayout tabs;
     CharSequence Titles[]={"Minhas Cifras"," Cifras Favoritas"};
     int Numboftabs =2;
-    private static final int REQUEST_PICTURE = 1000;
-    private static Bitmap fotoCifra;
-    private File imageFile;
 
-    String TITLES1[] = {"Galeria de Cifras","Sobre","Sair"};
+    String TITLES1[] = {"Galeria de Cifras","Contato","Sair"};
     int ICONS[] = {R.drawable.ic_action_galeria,R.drawable.ic_action_sobre,R.drawable.ic_action_sair};
 
     String NAME = Session.getUsuarioLogado().getLogin();
@@ -109,22 +85,6 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
-
-//############################## IMAGENS DA CIFRA ###########################
-
-// Obtem o local onde as fotos sao armazenadas na memoria externa do dispositivo
-        File picsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+"/Cifrasong");
-
-// Define o local completo onde a foto sera armazenada (diretorio + arquivo)
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-HH:mm:ss");
-        Date data = new Date();
-        Calendar  cal = Calendar.getInstance();
-        cal.setTime(data);
-        Date data_atual = cal.getTime();
-        String data_completa = dateFormat.format(data_atual);
-
-        this.imageFile = new File(picsDir, "CifraSong-"+data_completa+".jpg");
-
 
 // ##################### Criacao do toolbar
 
@@ -174,22 +134,6 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
             }
         });
 
-        final FloatingActionButton actionB = (FloatingActionButton) findViewById(R.id.action_b);
-        actionB.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MenuActivity.this, "Clicou em Tirar Foto", Toast.LENGTH_SHORT).show();
-
-                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-                // Indica na intent o local onde a foto tirada deve ser armazenada
-                i.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imageFile));
-
-                // Abre a aplicacao de camera
-                startActivityForResult(i, REQUEST_PICTURE);
-            }
-        });
-
 //############# fim floating action buttom #######################
 
 
@@ -225,9 +169,6 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
                 super.onDrawerClosed(drawerView);
                 // Code here will execute once drawer is closed
             }
-
-
-
         };
 
         // Drawer Toggle Object Made
@@ -250,15 +191,12 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
                     int position = recyclerView.getChildPosition(child);
 
                     if (position == 1){
-                        Toast.makeText(MenuActivity.this,"Clicou na Galeria de Cifras", Toast.LENGTH_SHORT).show();
-                        // Adicionar código de call da galeria.
-                        // Adicionar código de call da galeria.
-                        // Adicionar código de call da galeria.
-                        // Adicionar código de call da galeria.
-                        // Adicionar código de call da galeria.
+                        Intent i = new Intent(MenuActivity.this,GaleriaAct.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i);
                     }
                     else if (position == 2 ){
-                        Intent i = new Intent(MenuActivity.this,SobreAct.class);
+                        Intent i = new Intent(MenuActivity.this,ContatoAct.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
                     }
@@ -277,38 +215,7 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
         });
 //################## Fim nav Drawer #############
     }
-    /**
-     * Metodo chamado quando a aplicao nativa da camera e finalizada
-     * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
-     */
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // Verifica o codigo de requisicao e se o resultado e OK (outro resultado indica que
-        // o usuario cancelou a tirada da foto)
-        if (requestCode == REQUEST_PICTURE && resultCode == RESULT_OK) {
 
-            FileInputStream fis = null;
-
-            try {
-                try {
-                    // Cria um FileInputStream para ler a foto tirada pela c?mera
-                    fis = new FileInputStream(imageFile);
-
-                    // Converte a stream em um objeto Bitmap
-                    Bitmap picture = BitmapFactory.decodeStream(fis);
-
-                    fotoCifra = picture;
-
-                } finally {
-                    if (fis != null) {
-                        fis.close();
-                    }
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

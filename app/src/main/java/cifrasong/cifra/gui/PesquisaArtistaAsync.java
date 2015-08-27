@@ -1,9 +1,11 @@
 package cifrasong.cifra.gui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -30,8 +32,9 @@ public class PesquisaArtistaAsync extends AsyncTask <Void, Object, Cifra> {
     private ProgressBar progressBar;
     private TextView texto;
     private int total = 0;
-    private static int PROGRESSO = 25;
+    private static int PROGRESSO = 1;
     private Button exibir;
+    private Context context;
     String artista = "";
 
     public PesquisaArtistaAsync(Context context, ProgressBar progressBar, TextView texto ,String endereco , Button exibir,String artista) {
@@ -40,6 +43,7 @@ public class PesquisaArtistaAsync extends AsyncTask <Void, Object, Cifra> {
         this.endereco = endereco;
         this.exibir = exibir;
         this.artista = artista;
+        this.context = context;
     }
 
     @Override
@@ -94,10 +98,10 @@ public class PesquisaArtistaAsync extends AsyncTask <Void, Object, Cifra> {
             if (content.size() > 0){
                 PesquisaArtistaAct.cifras = content;
                 try {
-                    Thread.sleep(1000);
-                    for (int i=0; i<4; i++) {
+                    Thread.sleep(50);
+                    for (int i=0; i<100; i++) {
                         publishProgress();
-                        Thread.sleep(1000);
+                        Thread.sleep(50);
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -124,13 +128,14 @@ public class PesquisaArtistaAsync extends AsyncTask <Void, Object, Cifra> {
 
     @Override
     protected void onPostExecute (Cifra result){
+        super.onPostExecute(result);
         if (PesquisaArtistaAct.cifras != null ) {
-            exibir.setClickable(true);
-            texto.setText("Tarefa concluída toque novamente em Pesquisar para visualizar as Cifras.");
-            texto.setGravity(Gravity.CENTER_HORIZONTAL);
-            super.onPostExecute(result);
+            Intent i = new Intent();
+            i.setClass(context, PesquisaArtistaAct.class);
+            context.startActivity(i);
 
         }else{
+            progressBar.setVisibility(View.INVISIBLE);
             exibir.setClickable(true);
             texto.setText("Verifique o nome do Artista digitado e sua conexão com a Internet.");
             texto.setGravity(Gravity.CENTER_HORIZONTAL);

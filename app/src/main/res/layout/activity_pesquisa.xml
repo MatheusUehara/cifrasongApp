@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cifrasong.usuario.gui.SobreAct"
+    tools:context="cifrasong.usuario.gui.ContatoAct"
     android:orientation="vertical">
 
     <include
@@ -28,7 +28,8 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="top"
-        android:foregroundGravity="center">
+        android:foregroundGravity="center"
+        android:fillViewport="false">
 
         <LinearLayout
             android:orientation="vertical"
@@ -119,9 +120,9 @@
             <TextView
                 android:id="@+id/texto"
                 android:layout_width="fill_parent"
-
+                android:gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/progress"/>
+                android:layout_below="@id/progress" />
 
         </LinearLayout>
     </ScrollView>

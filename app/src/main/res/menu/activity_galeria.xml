@@ -1,0 +1,15 @@
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:CifraSong="http://schemas.android.com/apk/res-auto"
+    tools:context="cifrasong.cifra.gui.GaleriaAct" >
+
+    <item
+        android:id="@+id/tirarFoto"
+        android:title="Tirar Foto"
+        android:orderInCategory="3"
+        CifraSong:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_camera"
+        />
+
+</menu>

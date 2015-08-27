@@ -1,22 +1,15 @@
 package cifrasong.cifra.gui;
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.v4.app.NavUtils;
-import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.HorizontalScrollView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -112,14 +105,12 @@ public class ExibeCifraAct extends android.support.v7.app.AppCompatActivity {
                 Intent oShareIntent = new Intent(android.content.Intent.ACTION_SEND);
                 oShareIntent.setType("text/plain");
                 oShareIntent.putExtra(Intent.EXTRA_TEXT, shareWhats + "Compartilhado via CifraSong");
-                startActivity(oShareIntent);
+                startActivity(Intent.createChooser(oShareIntent, "Compartilhar via:"));
             }catch(Exception e){
                 Toast.makeText(ExibeCifraAct.this, "Ocorreu uma falha no compartilhamento.", Toast.LENGTH_SHORT).show();
             }
         }
         if (id == R.id.rolar){
-
-
             ScrollView sv = (ScrollView)findViewById(R.id.scrollView3);
             scrollRight(sv);
         }

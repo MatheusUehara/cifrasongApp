@@ -1,10 +1,9 @@
 package cifrasong.cifra.gui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -13,8 +12,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v7.widget.Toolbar;
 
+import java.text.Normalizer;
 
 import cifrasong.R;
 import cifrasong.cifra.negocio.CifraService;
@@ -25,6 +24,9 @@ public class PesquisaAct extends android.support.v7.app.AppCompatActivity {
     final CifraService negocio = new CifraService(PesquisaAct.this);
 
     Toolbar toolbar;
+
+    static PesquisaCifraAsync pesquisa;
+    static PesquisaArtistaAsync pesquisaArtista;
 
     public void onBackPressed(){
         Intent intent = new Intent(PesquisaAct.this,MenuActivity.class);
@@ -73,51 +75,45 @@ public class PesquisaAct extends android.support.v7.app.AppCompatActivity {
         pesquisar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String sufixo = nomeArtista.getText().toString()+"/"+ nomeMusica.getText().toString();
+                String sufixo = tiraChar(nomeArtista.getText().toString()) + "/" + tiraChar(nomeMusica.getText().toString());
                 ExibeCifraPesquisaAct.cifraArtista = nomeArtista.getText().toString();
                 ExibeCifraPesquisaAct.cifraNome = nomeMusica.getText().toString();
 
-                PesquisaCifraAsync pesquisa = new PesquisaCifraAsync(PesquisaAct.this,progress,texto,negocio.montaLink(sufixo),pesquisar);
+                pesquisa = new PesquisaCifraAsync(PesquisaAct.this, progress, texto, negocio.montaLink(sufixo), pesquisar);
 
-                PesquisaArtistaAsync pesquisaArtista = new PesquisaArtistaAsync(PesquisaAct.this,progress,texto,
-                        negocio.montaLink(nomeArtista.getText().toString()),pesquisar,nomeArtista.getText().toString());
+                pesquisaArtista = new PesquisaArtistaAsync(PesquisaAct.this, progress, texto, negocio.montaLink(nomeArtista.getText().toString()), pesquisar, nomeArtista.getText().toString());
 
                 String artista = nomeArtista.getText().toString();
                 String musica = nomeMusica.getText().toString();
+
                 try {
-
-                    if(texto.getText().toString() =="Tarefa concluída toque novamente em Pesquisar para visualizar sua Cifra."){
-                        Toast.makeText(PesquisaAct.this, "Veja a cifra.", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent();
-                        i.setClass(PesquisaAct.this, ExibeCifraPesquisaAct.class);
-                        startActivity(i);
-
-                    }else if(texto.getText().toString() == "Tarefa concluída toque novamente em Pesquisar para visualizar as Cifras.") {
-                        Toast.makeText(PesquisaAct.this, "Veja as cifras.", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent();
-                        i.setClass(PesquisaAct.this, PesquisaArtistaAct.class);
-                        startActivity(i);
-
-                    }else if(musica.length() == 0 && artista.length()!= 0){
-                        pesquisaArtista.execute();
+                    if (musica.length() == 0 && artista.length() != 0) {
                         progress.setVisibility(View.VISIBLE);
+                        pesquisaArtista.execute();
                         pesquisar.setClickable(false);
                         Toast.makeText(PesquisaAct.this, "Aguarde a nossa Busca.", Toast.LENGTH_SHORT).show();
-                    }else if (musica.length() == 0) {
+                    } else if (musica.length() == 0) {
                         Toast.makeText(PesquisaAct.this, "Digite um musica para a busca.", Toast.LENGTH_SHORT).show();
                     } else if (artista.length() == 0) {
                         Toast.makeText(PesquisaAct.this, "Digite um artista para a busca.", Toast.LENGTH_SHORT).show();
-
-                    }else{
+                    } else {
                         pesquisa.execute();
-                        progress.setVisibility(View.VISIBLE);
                         pesquisar.setClickable(false);
+                        progress.setVisibility(View.VISIBLE);
                         Toast.makeText(PesquisaAct.this, "Aguarde a nossa Busca.", Toast.LENGTH_SHORT).show();
                     }
-                }catch(Exception e) {
-                    Toast.makeText(PesquisaAct.this,"Verifique sua conexão com a Internet.", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(PesquisaAct.this, "Verifique sua conexão com a Internet.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    private String tiraChar (String input){
+        String text;
+        text = Normalizer.normalize(input, Normalizer.Form.NFD);
+        text = text.replaceAll("[^\\p{ASCII}]", "");
+        text = text.toLowerCase();
+        return text;
     }
 }

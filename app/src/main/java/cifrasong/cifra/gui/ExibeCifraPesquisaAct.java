@@ -1,14 +1,9 @@
 package cifrasong.cifra.gui;
 
 
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
-import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.TextUtils;
@@ -16,14 +11,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import cifrasong.R;
 import cifrasong.cifra.dominio.Cifra;
 import cifrasong.cifra.negocio.CifraService;
-import cifrasong.usuario.dominio.Session;
 import cifrasong.usuario.gui.MenuActivity;
 
 
@@ -34,12 +27,14 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
 
 
     public void onBackPressed(){
-        Intent intent = new Intent(ExibeCifraPesquisaAct.this, MenuActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
         cifraMusica = null;
         cifraArtista = null;
         cifraNome = null;
+
+        Intent intent = new Intent(ExibeCifraPesquisaAct.this, MenuActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+
     }
 
     final CifraService negocio = new CifraService(ExibeCifraPesquisaAct.this);
@@ -134,15 +129,15 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
                 Intent oShareIntent = new Intent(android.content.Intent.ACTION_SEND);
                 oShareIntent.setType("text/plain");
                 oShareIntent.putExtra(Intent.EXTRA_TEXT, shareWhats + "Compartilhado via CifraSong");
-                startActivity(oShareIntent);
+                startActivity(Intent.createChooser(oShareIntent, "Compartilhar via:"));
             }catch(Exception e){
                 Toast.makeText(this, "Ocorreu uma falha no compartilhamento..", Toast.LENGTH_SHORT).show();
             }
         }
         if (id == R.id.rolar){
             //for (int i=0 ; i <= sv.getBottom(); i++){
-          //      sv.scrollTo(i,i+1);
-          // };
+            //      sv.scrollTo(i,i+1);
+            // };
             TextView cifra = (TextView)findViewById(R.id.letraCifra);
 
             cifra.setVerticalScrollBarEnabled(true);
