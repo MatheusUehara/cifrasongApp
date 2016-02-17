@@ -42,9 +42,6 @@ public class PesquisaAct extends android.support.v7.app.AppCompatActivity {
 
         setContentView(R.layout.activity_pesquisa);
 
-        ImageView image = (ImageView) findViewById(R.id.imageView);
-
-        image.setImageResource(R.drawable.ic_launcher_logo);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
 
         setSupportActionBar(toolbar);

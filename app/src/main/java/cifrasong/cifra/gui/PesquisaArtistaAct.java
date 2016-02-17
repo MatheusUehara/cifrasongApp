@@ -46,9 +46,7 @@ public class PesquisaArtistaAct extends android.support.v7.app.AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_cifras_artistas);
 
-        ImageView image = (ImageView) findViewById(R.id.imageView);
 
-        image.setImageResource(R.drawable.ic_launcher_logo);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
 
         setSupportActionBar(toolbar);

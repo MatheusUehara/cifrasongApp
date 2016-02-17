@@ -4,6 +4,7 @@ package cifrasong.cifra.gui;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.TextUtils;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +33,7 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
         cifraArtista = null;
         cifraNome = null;
 
-        Intent intent = new Intent(ExibeCifraPesquisaAct.this, MenuActivity.class);
+        Intent intent = new Intent(ExibeCifraPesquisaAct.this, PesquisaAct.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
 
@@ -46,20 +48,12 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
     public static String cifraNome = null;
 
     public static String shareWhats = null;
-
-   // public static ScrollView sv;
-
+    public static int tamanhoRolagem;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exibe_cifra);
-
         setTitle(cifraArtista);
-
-        //# pega a scroll view pra fazer a rolagem da cifra
-      //  ScrollView svTemp = (ScrollView)findViewById(R.id.scrollView3);
-
-       // sv=svTemp;
 
         // Creating The Toolbar and setting it as the Toolbar for the activity
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
@@ -69,7 +63,7 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ExibeCifraPesquisaAct.this, MenuActivity.class);
+                Intent i = new Intent(ExibeCifraPesquisaAct.this, PesquisaAct.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
@@ -85,10 +79,10 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
         }
 
         String conteudo = String.format(res.getString(R.string.cifra),cifraArtista, cifraNome,cifraMusica);
-
         cifra.setText(Html.fromHtml(conteudo));
-
         shareWhats = Html.fromHtml(conteudo).toString();
+        cifra.measure(0, 0);
+        tamanhoRolagem = cifra.getMeasuredHeight();
 
     }
 
@@ -134,19 +128,21 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
                 Toast.makeText(this, "Ocorreu uma falha no compartilhamento..", Toast.LENGTH_SHORT).show();
             }
         }
+        /*
         if (id == R.id.rolar){
-            //for (int i=0 ; i <= sv.getBottom(); i++){
-            //      sv.scrollTo(i,i+1);
-            // };
-            TextView cifra = (TextView)findViewById(R.id.letraCifra);
-
-            cifra.setVerticalScrollBarEnabled(true);
-            cifra.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-            cifra.setMarqueeRepeatLimit(-1);
-            cifra.setFocusable(true);
-            cifra.setFocusableInTouchMode(true);
+            ScrollView sv = (ScrollView)findViewById(R.id.scrollView3);
+            scrollRight(sv);
         }
+        */
         return super.onOptionsItemSelected(item);
     }
 
+    public void scrollRight(final ScrollView h){
+        new CountDownTimer(tamanhoRolagem, 20) {
+            public void onTick(long millisUntilFinished){
+                h.scrollTo(0, (int) (tamanhoRolagem - millisUntilFinished));
+            }
+            public void onFinish() {}
+        }.start();
+    }
 }

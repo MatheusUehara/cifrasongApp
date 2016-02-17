@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -27,6 +28,7 @@ public class ExibeCifraAct extends android.support.v7.app.AppCompatActivity {
 
     Toolbar toolbar;
     public static String shareWhats = null;
+    public static int tamanhoRolagem;
     final CifraService negocio = new CifraService(this);
 
     public void onBackPressed(){
@@ -64,6 +66,8 @@ public class ExibeCifraAct extends android.support.v7.app.AppCompatActivity {
         String conteudo = String.format(res.getString(R.string.cifra), Session.getCifraSelecionada().getNome(), " ", Session.getCifraSelecionada().getConteudo());
         cifra.setText(Html.fromHtml(conteudo));
         shareWhats = Html.fromHtml(conteudo).toString();
+        cifra.measure(0, 0);
+        tamanhoRolagem = cifra.getMeasuredHeight();
 
     }
 
@@ -110,22 +114,21 @@ public class ExibeCifraAct extends android.support.v7.app.AppCompatActivity {
                 Toast.makeText(ExibeCifraAct.this, "Ocorreu uma falha no compartilhamento.", Toast.LENGTH_SHORT).show();
             }
         }
+        /*
         if (id == R.id.rolar){
             ScrollView sv = (ScrollView)findViewById(R.id.scrollView3);
             scrollRight(sv);
         }
+        */
         return super.onOptionsItemSelected(item);
     }
 
     public void scrollRight(final ScrollView h){
-        new CountDownTimer(2000, 20) {
-
-            public void onTick(long millisUntilFinished) {
-                h.scrollTo(0,(int) (2000 - millisUntilFinished));
+        new CountDownTimer(tamanhoRolagem, 20) {
+            public void onTick(long millisUntilFinished){
+                h.scrollTo(0, (int) (tamanhoRolagem - millisUntilFinished));
             }
-
-            public void onFinish() {
-
-            }
-        }.start(); }
+            public void onFinish() {}
+        }.start();
+    }
 }

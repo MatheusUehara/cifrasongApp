@@ -66,6 +66,7 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
 
             String targetPath = ExternalStorageDirectoryPath + "/Pictures/Cifrasong/";
             targetDirector = new File(targetPath);
+
             myTaskAdapter.clear();
 
             super.onPreExecute();
@@ -238,7 +239,10 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_galeria);
-
+        File folder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Pictures/Cifrasong/");
+        if (!folder.exists()) {
+            folder.mkdir();
+        };
         // ##################### Criacao do toolbar e do botão de voltar
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
@@ -256,11 +260,9 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
 
 
         //############################## IMAGENS DA CIFRA ###########################
-
-// Obtem o local onde as fotos sao armazenadas na memoria externa do dispositivo
+        // Obtem o local onde as fotos sao armazenadas na memoria externa do dispositivo
         File picsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+"/Cifrasong");
-
-// Define o local completo onde a foto sera armazenada (diretorio + arquivo)
+        // Define o local completo onde a foto sera armazenada (diretorio + arquivo)
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-HH:mm:ss");
         Date data = new Date();
         Calendar cal = Calendar.getInstance();

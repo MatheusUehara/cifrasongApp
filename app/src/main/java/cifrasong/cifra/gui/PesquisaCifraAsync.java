@@ -114,6 +114,7 @@ public class PesquisaCifraAsync extends AsyncTask <Void, Object, List> {
         if (ExibeCifraPesquisaAct.cifraMusica!= null){
             Intent i = new Intent();
             i.setClass(context, ExibeCifraPesquisaAct.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(i);
         }else{
             progressBar.setVisibility(View.INVISIBLE);
