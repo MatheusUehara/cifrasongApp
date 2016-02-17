@@ -64,5 +64,18 @@ public class CadastroAct extends Activity {
 				}
             }
         });
+
+        final Button voltar = (Button) findViewById(R.id.voltar);
+
+        voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent();
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.setClass(CadastroAct.this,LoginAct.class);
+                startActivity(i);
+            }
+
+    });
     }
 }
