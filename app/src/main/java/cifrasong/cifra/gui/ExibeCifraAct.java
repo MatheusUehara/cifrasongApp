@@ -1,5 +1,7 @@
 package cifrasong.cifra.gui;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -43,7 +45,7 @@ public class ExibeCifraAct extends android.support.v7.app.AppCompatActivity {
 
         setTitle(Session.getCifraSelecionada().getArtista());
 
-        // Creating The Toolbar and setting it as the Toolbar for the activity
+            // Creating The Toolbar and setting it as the Toolbar for the activity
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
@@ -74,16 +76,46 @@ public class ExibeCifraAct extends android.support.v7.app.AppCompatActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.excluir) {
-            try {
+    /**
+     * Builder do AlertDialog da exclusao de cifra
+     */
+
+    //atributo da classe.
+    private AlertDialog alerta;
+
+    private void ExcluirDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Excluir Cifra");
+        builder.setMessage("Tem certeza que deseja excluir esta cifra?");
+
+        builder.setPositiveButton("Excluir", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
                 negocio.deletarCifra();
                 Toast.makeText(ExibeCifraAct.this, "Cifra deletada com sucesso.", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent();
                 i.setClass(ExibeCifraAct.this,MenuActivity.class);
                 startActivity(i);
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                Toast.makeText(ExibeCifraAct.this, "Cifra não deletada", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        alerta = builder.create();
+        alerta.show();
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.excluir) {
+            try {
+                ExcluirDialog();
             } catch (Exception e) {
                 e.printStackTrace();
             }
