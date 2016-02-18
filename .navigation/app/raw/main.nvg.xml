@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigationModel
+  ns = "http://schemas.android.com?import=com.android.tools.idea.editors.navigation.model.*">
+  <locations  
+    class = "java.util.ArrayList">
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "cifrasong.cifra.gui.PesquisaArtistaAct"/>
+      <point      
+        x = "500"      
+        y = "5616"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "cifrasong.cifra.gui.ExibeCifraPesquisaAct"/>
+      <point      
+        x = "500"      
+        y = "100"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
+        className = "cifrasong.cifra.gui.ExibeCifraPesquisaAct"/>
+      <point      
+        x = "1768"      
+        y = "100"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "cifrasong.usuario.gui.EditarDadosAct"/>
+      <point      
+        x = "536"      
+        y = "5668"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "cifrasong.cifra.gui.GaleriaAct"/>
+      <point      
+        x = "500"      
+        y = "1480"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
+        className = "cifrasong.cifra.gui.GaleriaAct"/>
+      <point      
+        x = "1768"      
+        y = "1480"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "cifrasong.usuario.gui.CadastroAct"/>
+      <point      
+        x = "600"      
+        y = "5720"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "cifrasong.usuario.gui.LoginAct"/>
+      <point      
+        x = "648"      
+        y = "5768"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "cifrasong.cifra.gui.PesquisaAct"/>
+      <point      
+        x = "700"      
+        y = "5820"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "cifrasong.cifra.gui.ExibeCifraAct"/>
+      <point      
+        x = "500"      
+        y = "2860"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
+        className = "cifrasong.cifra.gui.ExibeCifraAct"/>
+      <point      
+        x = "1768"      
+        y = "2860"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "cifrasong.usuario.gui.MenuActivity"/>
+      <point      
+        x = "3036"      
+        y = "2860"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "cifrasong.cifra.gui.ExibeCifraFavoritaAct"/>
+      <point      
+        x = "500"      
+        y = "4240"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.MenuState"      
+        className = "cifrasong.cifra.gui.ExibeCifraFavoritaAct"/>
+      <point      
+        x = "1768"      
+        y = "4240"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "cifrasong.usuario.gui.EditarSenhaAct"/>
+      <point      
+        x = "748"      
+        y = "5868"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "cifrasong.usuario.gui.ContatoAct"/>
+      <point      
+        x = "800"      
+        y = "5920"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "cifrasong.usuario.gui.EditarEmailAct"/>
+      <point      
+        x = "850"      
+        y = "5970"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "cifrasong.usuario.gui.SplashAct"/>
+      <point      
+        x = "900"      
+        y = "6020"/>
+    </statePointEntry>
+  </locations>
+</navigationModel>

@@ -132,8 +132,8 @@ public class PesquisaArtistaAsync extends AsyncTask <Void, Object, Cifra> {
         if (PesquisaArtistaAct.cifras != null ) {
             Intent i = new Intent();
             i.setClass(context, PesquisaArtistaAct.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(i);
-
         }else{
             progressBar.setVisibility(View.INVISIBLE);
             exibir.setClickable(true);

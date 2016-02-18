@@ -30,9 +30,6 @@ public class ContatoAct extends android.support.v7.app.AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contato);
 
-        ImageView image = (ImageView) findViewById(R.id.imageView);
-
-        image.setImageResource(R.drawable.ic_launcher_logo);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
 
         setSupportActionBar(toolbar);
