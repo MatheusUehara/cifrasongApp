@@ -2,10 +2,11 @@ package cifrasong.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+
 /**
  * Created by Uehara on 08/11/2014.
  */
-public abstract class  DAO {
+public abstract class DAO {
 
     private static CifraSongSQLiteHelper dataBaseHelper;
     private static SQLiteDatabase database;
@@ -49,8 +50,7 @@ public abstract class  DAO {
         setDatabase(getDataBaseHelper().getWritableDatabase());
     }
 
-    public void close()
-    {
+    public void close() {
         getDataBaseHelper().close();
     }
 

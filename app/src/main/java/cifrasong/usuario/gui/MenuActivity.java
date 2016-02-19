@@ -29,7 +29,7 @@ import cifrasong.util.material.SlidingTabLayout;
 
 public class MenuActivity extends android.support.v7.app.AppCompatActivity {
 
-    public void onQuit(){
+    public void onQuit() {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MenuActivity.this);
 
         alertDialogBuilder.setTitle("Sair");
@@ -54,7 +54,7 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
         alertDialogBuilder.show();
     }
 
-    public void onBackPressed(){
+    public void onBackPressed() {
         onQuit();
     }
 
@@ -64,11 +64,11 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
     ViewPager pager;
     ViewPagerAdapter adapter;
     SlidingTabLayout tabs;
-    CharSequence Titles[]={"Minhas Cifras"," Cifras Favoritas"};
-    int Numboftabs =2;
+    CharSequence Titles[] = {"Minhas Cifras", " Cifras Favoritas"};
+    int Numboftabs = 2;
 
-    String TITLES1[] = {"Galeria de Cifras","Contato","Sair"};
-    int ICONS[] = {R.drawable.ic_action_galeria,R.drawable.ic_action_sobre,R.drawable.ic_action_sair};
+    String TITLES1[] = {"Galeria de Cifras", "Configurações", "Contato", "Sair"};
+    int ICONS[] = {R.drawable.ic_action_galeria, R.drawable.ic_action_sobre, R.drawable.ic_action_sobre, R.drawable.ic_action_sair};
 
     String NAME = Session.getUsuarioLogado().getLogin();
     String EMAIL = Session.getUsuarioLogado().getEmail();
@@ -94,7 +94,7 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
 //####################### Sliding tabs adapter ####################
 
         // Creating The ViewPagerAdapter and Passing Fragment Manager, Titles fot the Tabs and Number Of Tabs.
-        adapter =  new ViewPagerAdapter(getSupportFragmentManager(),Titles,Numboftabs);
+        adapter = new ViewPagerAdapter(getSupportFragmentManager(), Titles, Numboftabs);
 
         // Assigning ViewPager View and setting the adapter
         pager = (ViewPager) findViewById(R.id.pager);
@@ -128,7 +128,7 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
         actionA.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent (MenuActivity.this,PesquisaAct.class);
+                Intent i = new Intent(MenuActivity.this, PesquisaAct.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
@@ -143,7 +143,7 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
 
         mRecyclerView.setHasFixedSize(true);                            // Letting the system know that the list objects are of fixed size
 
-        mAdapter = new DrawerAdapter(TITLES1,ICONS,NAME,EMAIL,PROFILE,this);       // Creating the Adapter of MyAdapter class(which we are going to see in a bit)
+        mAdapter = new DrawerAdapter(TITLES1, ICONS, NAME, EMAIL, PROFILE, this);       // Creating the Adapter of MyAdapter class(which we are going to see in a bit)
         // And passing the titles,icons,menu_header view name, menu_header view email and context for adapter
         // and menu_header view profile picture
 
@@ -155,7 +155,7 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
 
 
         Drawer = (DrawerLayout) findViewById(R.id.DrawerLayout);        // Drawer object Assigned to the view
-        mDrawerToggle = new ActionBarDrawerToggle(this,Drawer,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close){
+        mDrawerToggle = new ActionBarDrawerToggle(this, Drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
 
             @Override
             public void onDrawerOpened(View drawerView) {
@@ -177,7 +177,8 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
 
 
         final GestureDetector mGestureDetector = new GestureDetector(MenuActivity.this, new GestureDetector.SimpleOnGestureListener() {
-            @Override public boolean onSingleTapUp(MotionEvent e) {
+            @Override
+            public boolean onSingleTapUp(MotionEvent e) {
                 return true;
             }
         });
@@ -190,17 +191,19 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
                     Drawer.closeDrawers();
                     int position = recyclerView.getChildPosition(child);
 
-                    if (position == 1){
-                        Intent i = new Intent(MenuActivity.this,GaleriaAct.class);
+                    if (position == 1) {
+                        Intent i = new Intent(MenuActivity.this, GaleriaAct.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
-                    }
-                    else if (position == 2 ){
-                        Intent i = new Intent(MenuActivity.this,ContatoAct.class);
+                    } else if (position == 2) {
+                        Intent i = new Intent(MenuActivity.this, ConfiguracaoAct.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
-                    }
-                    else if (position ==3){
+                    } else if (position == 3) {
+                        Intent i = new Intent(MenuActivity.this, ContatoAct.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i);
+                    } else if (position == 4) {
                         onQuit();
                     }
                     return true;

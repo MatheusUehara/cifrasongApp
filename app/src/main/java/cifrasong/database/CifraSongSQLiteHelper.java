@@ -9,7 +9,7 @@ import android.util.Log;
 /**
  * Created by Uehara on 08/11/2014.
  */
-public class CifraSongSQLiteHelper extends SQLiteOpenHelper  {
+public class CifraSongSQLiteHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "cifrasongbd";
 
@@ -50,25 +50,31 @@ public class CifraSongSQLiteHelper extends SQLiteOpenHelper  {
 
     private static final String TABLE_DATABASE_USUARIO_CREATE =
             "create table usuario (_id integer primary key autoincrement, " +
-                    "login text not null, "+
-                    "senha text not null, "+
+                    "login text not null, " +
+                    "senha text not null, " +
                     "email text not null);";
 
     public static String getTableDatabaseUsuarioCreate() {
         return TABLE_DATABASE_USUARIO_CREATE;
     }
-    public static String getEmail(){
+
+    public static String getEmail() {
         return EMAIL_USUARIO;
     }
+
     public static String getLogin() {
         return LOGIN_USUARIO;
     }
+
     public static String getSenha() {
         return SENHA_USUARIO;
     }
-    public static String getIdUsuario(){return ID_USUARIO;}
 
-	public static String getTableNameUsuario() {
+    public static String getIdUsuario() {
+        return ID_USUARIO;
+    }
+
+    public static String getTableNameUsuario() {
         return TABLE_NAME_USUARIO;
     }
 
@@ -84,11 +90,11 @@ public class CifraSongSQLiteHelper extends SQLiteOpenHelper  {
     private static final String TABLE_NAME_CIFRA = "cifra";
     private static final String TABLE_DATABASE_CIFRA_CREATE =
             "create table cifra (_id integer primary key autoincrement, " +
-                    "cifra text not null, "+
-                    "nome text not null, "+
+                    "cifra text not null, " +
+                    "nome text not null, " +
                     "artista text not null);";
 
-    public static String getTableDatabaseCifraCreate(){
+    public static String getTableDatabaseCifraCreate() {
         return TABLE_DATABASE_CIFRA_CREATE;
     }
 
@@ -121,29 +127,39 @@ public class CifraSongSQLiteHelper extends SQLiteOpenHelper  {
     private static final String USUARIO_CIFRA_USUARIO_ID = "usuario_id";
     private static final String USUARIO_CIFRA_CIFRA_ID = "cifra_id";
     private static final String USUARIO_CIFRA_FAVORITO = "cifra_favorita";
-	private static final String TABLE_NAME_USUARIO_CIFRA = "cifraUsuario";
-	
+    private static final String TABLE_NAME_USUARIO_CIFRA = "cifraUsuario";
+
     private static final String CREATE_TABLE_NAME_USUARIO_CIFRA =
             "create table cifraUsuario (_id integer primary key autoincrement, "
-            + "usuario_id integer, "
-            + "cifra_id integer,"
-            + "cifra_favorita integer,"
-            + "foreign key(usuario_id) references usuario(_id), "
-            + "foreign key(cifra_id) references cifra(_id));";
+                    + "usuario_id integer, "
+                    + "cifra_id integer,"
+                    + "cifra_favorita integer,"
+                    + "foreign key(usuario_id) references usuario(_id), "
+                    + "foreign key(cifra_id) references cifra(_id));";
 
-    public static String getTableDatabaseUsuarioCifraCreate(){return CREATE_TABLE_NAME_USUARIO_CIFRA;}
+    public static String getTableDatabaseUsuarioCifraCreate() {
+        return CREATE_TABLE_NAME_USUARIO_CIFRA;
+    }
 
-	public static String getTableNameUsuarioCifra(){return TABLE_NAME_USUARIO_CIFRA;}
+    public static String getTableNameUsuarioCifra() {
+        return TABLE_NAME_USUARIO_CIFRA;
+    }
 
     public static String getCifraFavorito() {
         return USUARIO_CIFRA_FAVORITO;
     }
-	
-    public static String getRelacionamentoId() {return RELACIONAMENTO_ID;}
 
-    public static String getUsuarioCifraUsuarioId() {return USUARIO_CIFRA_USUARIO_ID;}
+    public static String getRelacionamentoId() {
+        return RELACIONAMENTO_ID;
+    }
 
-    public static String getUsuarioCifraCifraId() {return USUARIO_CIFRA_CIFRA_ID;}
+    public static String getUsuarioCifraUsuarioId() {
+        return USUARIO_CIFRA_USUARIO_ID;
+    }
+
+    public static String getUsuarioCifraCifraId() {
+        return USUARIO_CIFRA_CIFRA_ID;
+    }
 
     @Override
     public void onCreate(SQLiteDatabase dataBase) {

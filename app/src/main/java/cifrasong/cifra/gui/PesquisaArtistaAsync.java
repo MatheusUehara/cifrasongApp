@@ -26,7 +26,7 @@ import cifrasong.cifra.dominio.Cifra;
  * Created by Uehara on 30/11/2014.
  */
 
-public class PesquisaArtistaAsync extends AsyncTask <Void, Object, Cifra> {
+public class PesquisaArtistaAsync extends AsyncTask<Void, Object, Cifra> {
 
     private String endereco = "";
     private ProgressBar progressBar;
@@ -37,7 +37,7 @@ public class PesquisaArtistaAsync extends AsyncTask <Void, Object, Cifra> {
     private Context context;
     String artista = "";
 
-    public PesquisaArtistaAsync(Context context, ProgressBar progressBar, TextView texto ,String endereco , Button exibir,String artista) {
+    public PesquisaArtistaAsync(Context context, ProgressBar progressBar, TextView texto, String endereco, Button exibir, String artista) {
         this.progressBar = progressBar;
         this.texto = texto;
         this.endereco = endereco;
@@ -54,7 +54,7 @@ public class PesquisaArtistaAsync extends AsyncTask <Void, Object, Cifra> {
 
     @Override
     protected Cifra doInBackground(Void... params) {
-        ArrayList <Cifra> content = new ArrayList<Cifra>();
+        ArrayList<Cifra> content = new ArrayList<Cifra>();
         try {
             URL url = new URL(this.endereco);
             URLConnection c = url.openConnection();
@@ -80,12 +80,12 @@ public class PesquisaArtistaAsync extends AsyncTask <Void, Object, Cifra> {
             }
 
 
-            String[] NomeCifras =  conteudo.split("<a href=\"/"+artista.replaceAll(" ","-")+"/");
+            String[] NomeCifras = conteudo.split("<a href=\"/" + artista.replaceAll(" ", "-") + "/");
 
-            for (String s: NomeCifras){
+            for (String s : NomeCifras) {
                 Pattern regexp_conteudo = Pattern.compile("([^<]+)/");
                 Matcher match = regexp_conteudo.matcher(s);
-                if(match.find()){
+                if (match.find()) {
                     Cifra cifra = new Cifra();
                     cifra.setNome(match.group(1).replaceAll("-", " "));
                     cifra.setArtista(artista);
@@ -94,19 +94,31 @@ public class PesquisaArtistaAsync extends AsyncTask <Void, Object, Cifra> {
                     }
                 }
             }
+            ArrayList<Cifra> contentLimpo = new ArrayList<Cifra>();
+            for (Cifra pivor : content) {
+                int contador = 0;
+                for (Cifra cifra : contentLimpo) {
+                    if (cifra.getNome().equals(pivor.getNome())) {
+                        contador++;
+                    }
+                }
+                if ((contador == 0) & (!pivor.getNome().contains("/"))) {
+                    contentLimpo.add(pivor);
+                }
+            }
 
-            if (content.size() > 0){
-                PesquisaArtistaAct.cifras = content;
+            if (contentLimpo.size() > 0) {
+                PesquisaArtistaAct.cifras = contentLimpo;
                 try {
                     Thread.sleep(50);
-                    for (int i=0; i<100; i++) {
+                    for (int i = 0; i < 100; i++) {
                         publishProgress();
                         Thread.sleep(50);
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            }else{
+            } else {
                 return null;
             }
 
@@ -118,7 +130,7 @@ public class PesquisaArtistaAsync extends AsyncTask <Void, Object, Cifra> {
     }
 
     @Override
-    protected void onProgressUpdate (Object...values){
+    protected void onProgressUpdate(Object... values) {
         total += PROGRESSO;
         progressBar.incrementProgressBy(PROGRESSO);
         texto.setText(total + "%");
@@ -127,14 +139,14 @@ public class PesquisaArtistaAsync extends AsyncTask <Void, Object, Cifra> {
     }
 
     @Override
-    protected void onPostExecute (Cifra result){
+    protected void onPostExecute(Cifra result) {
         super.onPostExecute(result);
-        if (PesquisaArtistaAct.cifras != null ) {
+        if (PesquisaArtistaAct.cifras != null) {
             Intent i = new Intent();
             i.setClass(context, PesquisaArtistaAct.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(i);
-        }else{
+        } else {
             progressBar.setVisibility(View.INVISIBLE);
             exibir.setClickable(true);
             texto.setText("Verifique o nome do Artista digitado e sua conexão com a Internet.");

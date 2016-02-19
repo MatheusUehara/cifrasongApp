@@ -23,7 +23,7 @@ import java.util.List;
  * Created by Uehara on 30/11/2014.
  */
 
-public class PesquisaCifraAsync extends AsyncTask <Void, Object, List> {
+public class PesquisaCifraAsync extends AsyncTask<Void, Object, List> {
 
     private String endereco = "";
     private ProgressBar progressBar;
@@ -33,7 +33,7 @@ public class PesquisaCifraAsync extends AsyncTask <Void, Object, List> {
     private Button exibir;
     private Context context;
 
-    public PesquisaCifraAsync(Context context, ProgressBar progressBar, TextView texto ,String endereco , Button exibir) {
+    public PesquisaCifraAsync(Context context, ProgressBar progressBar, TextView texto, String endereco, Button exibir) {
         this.progressBar = progressBar;
         this.texto = texto;
         this.endereco = endereco;
@@ -41,7 +41,7 @@ public class PesquisaCifraAsync extends AsyncTask <Void, Object, List> {
         this.context = context;
     }
 
-    public PesquisaCifraAsync(Context context,String endereco) {
+    public PesquisaCifraAsync(Context context, String endereco) {
         this.endereco = endereco;
     }
 
@@ -74,22 +74,22 @@ public class PesquisaCifraAsync extends AsyncTask <Void, Object, List> {
             // daqui pra baixo tem que ser separado depois para um metodo de limpeza da cifra.
 
             String conteudo = "";
-            for(String s : out) {
-                conteudo += "<br>"+s+"</br>";
+            for (String s : out) {
+                conteudo += "<br>" + s + "</br>";
             }
 
-            if (conteudo!= "") {
+            if (conteudo != "") {
                 ExibeCifraPesquisaAct.cifraMusica = conteudo;
                 try {
                     Thread.sleep(50);
-                    for (int i=0; i<100; i++) {
+                    for (int i = 0; i < 100; i++) {
                         publishProgress();
                         Thread.sleep(50);
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            }else{
+            } else {
                 return null;
             }
             in.close();
@@ -111,12 +111,12 @@ public class PesquisaCifraAsync extends AsyncTask <Void, Object, List> {
     @Override
     protected void onPostExecute(List result) {
         super.onPostExecute(result);
-        if (ExibeCifraPesquisaAct.cifraMusica!= null){
+        if (ExibeCifraPesquisaAct.cifraMusica != null) {
             Intent i = new Intent();
             i.setClass(context, ExibeCifraPesquisaAct.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(i);
-        }else{
+        } else {
             progressBar.setVisibility(View.INVISIBLE);
             exibir.setClickable(true);
             texto.setText("Verifique o nome da Musica digitada e sua conexão com a Internet.");

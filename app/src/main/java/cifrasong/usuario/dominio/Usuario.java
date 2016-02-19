@@ -14,43 +14,56 @@ public class Usuario {
     private String login;
     private String email;
     private String senha;
-    private ArrayList<Cifra> listaCifras ;
-    private ArrayList<Cifra> listaFavorita ;
+    private ArrayList<Cifra> listaCifras;
+    private ArrayList<Cifra> listaFavorita;
 
-    public Usuario(){}
+    public Usuario() {
+    }
 
-    public String getEmail(){
+    public String getEmail() {
         return this.email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public ArrayList<Cifra> getListaCifras(){ return this.listaCifras;}
+    public ArrayList<Cifra> getListaCifras() {
+        return this.listaCifras;
+    }
 
-    public void setListaCifra(ArrayList<Cifra> cifras){this.listaCifras = cifras;}
+    public void setListaCifra(ArrayList<Cifra> cifras) {
+        this.listaCifras = cifras;
+    }
 
-    public ArrayList<Cifra> getListaFavorita(){ return this.listaFavorita;}
+    public ArrayList<Cifra> getListaFavorita() {
+        return this.listaFavorita;
+    }
 
-    public void setListaFavorita(ArrayList<Cifra> cifras){this.listaFavorita = cifras;}
+    public void setListaFavorita(ArrayList<Cifra> cifras) {
+        this.listaFavorita = cifras;
+    }
 
-    public int getID(){
+    public int getID() {
         return this.id;
     }
+
     public void setID(int id) {
         this.id = id;
     }
 
-    public String getSenha(){
+    public String getSenha() {
         return this.senha;
     }
+
     public void setSenha(String senha) {
         this.senha = senha;
     }
 
-    public String getLogin(){
+    public String getLogin() {
         return this.login;
     }
+
     public void setLogin(String login) {
         this.login = login;
     }

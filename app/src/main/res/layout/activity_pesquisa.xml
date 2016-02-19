@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:text="Pesquisar Cifras"
                 android:id="@+id/pesquisar"
-                android:backgroundTint="#15538c"
+                android:backgroundTint="#1976d2"
                 android:textColor="#fff"
                 android:typeface="sans"
                 android:textStyle="bold"

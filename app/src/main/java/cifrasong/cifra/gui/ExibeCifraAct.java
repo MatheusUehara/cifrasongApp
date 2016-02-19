@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,8 +30,8 @@ public class ExibeCifraAct extends android.support.v7.app.AppCompatActivity {
     public static int tamanhoRolagem;
     final CifraService negocio = new CifraService(this);
 
-    public void onBackPressed(){
-        Intent intent = new Intent(ExibeCifraAct.this,MenuActivity.class);
+    public void onBackPressed() {
+        Intent intent = new Intent(ExibeCifraAct.this, MenuActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
@@ -60,7 +59,7 @@ public class ExibeCifraAct extends android.support.v7.app.AppCompatActivity {
         });
 
 
-        final TextView cifra = (TextView)findViewById(R.id.letraCifra);
+        final TextView cifra = (TextView) findViewById(R.id.letraCifra);
 
         Resources res = this.getResources();
         String conteudo = String.format(res.getString(R.string.cifra), Session.getCifraSelecionada().getNome(), " ", Session.getCifraSelecionada().getConteudo());
@@ -86,7 +85,7 @@ public class ExibeCifraAct extends android.support.v7.app.AppCompatActivity {
                 negocio.deletarCifra();
                 Toast.makeText(ExibeCifraAct.this, "Cifra deletada com sucesso.", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent();
-                i.setClass(ExibeCifraAct.this,MenuActivity.class);
+                i.setClass(ExibeCifraAct.this, MenuActivity.class);
                 startActivity(i);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -104,13 +103,13 @@ public class ExibeCifraAct extends android.support.v7.app.AppCompatActivity {
             }
         }
 
-        if (id == R.id.share){
-            try{
+        if (id == R.id.share) {
+            try {
                 Intent oShareIntent = new Intent(android.content.Intent.ACTION_SEND);
                 oShareIntent.setType("text/plain");
                 oShareIntent.putExtra(Intent.EXTRA_TEXT, shareWhats + "Compartilhado via CifraSong");
                 startActivity(Intent.createChooser(oShareIntent, "Compartilhar via:"));
-            }catch(Exception e){
+            } catch (Exception e) {
                 Toast.makeText(ExibeCifraAct.this, "Ocorreu uma falha no compartilhamento.", Toast.LENGTH_SHORT).show();
             }
         }
@@ -123,12 +122,14 @@ public class ExibeCifraAct extends android.support.v7.app.AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void scrollRight(final ScrollView h){
+    public void scrollRight(final ScrollView h) {
         new CountDownTimer(tamanhoRolagem, 20) {
-            public void onTick(long millisUntilFinished){
+            public void onTick(long millisUntilFinished) {
                 h.scrollTo(0, (int) (tamanhoRolagem - millisUntilFinished));
             }
-            public void onFinish() {}
+
+            public void onFinish() {
+            }
         }.start();
     }
 }

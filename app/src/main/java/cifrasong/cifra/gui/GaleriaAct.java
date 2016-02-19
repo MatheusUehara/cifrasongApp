@@ -24,7 +24,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -77,9 +76,8 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
 
             //open jpg only
             File[] files = targetDirector.listFiles(new FilenameFilter() {
-                public boolean accept(File dir, String name)
-                {
-                    return (name.endsWith(".jpg")||name.endsWith(".JPG"));
+                public boolean accept(File dir, String name) {
+                    return (name.endsWith(".jpg") || name.endsWith(".JPG"));
                 }
             });
             //File[] files = targetDirector.listFiles();
@@ -123,7 +121,7 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
             itemList.clear();
         }
 
-        void remove(int index){
+        void remove(int index) {
             itemList.remove(index);
         }
 
@@ -166,7 +164,7 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
             } else {
                 //imageView = (ImageView) convertView;
                 holder = (ViewHolder) convertView.getTag();
-                ((ImageView)convertView).setImageBitmap(null);
+                ((ImageView) convertView).setImageBitmap(null);
             }
 
             //Bitmap bm = decodeSampledBitmapFromUri(itemList.get(position), 220, 220);
@@ -184,7 +182,7 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
                     try {
                         ExifInterface exifInterface =
                                 new ExifInterface(itemList.get(position));
-                        if(exifInterface.hasThumbnail()){
+                        if (exifInterface.hasThumbnail()) {
                             byte[] thumbnail = exifInterface.getThumbnail();
                             bm = BitmapFactory.decodeByteArray(thumbnail, 0, thumbnail.length);
                         }
@@ -194,7 +192,7 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                    if(!haveThumbNail){
+                    if (!haveThumbNail) {
                         bm = decodeSampledBitmapFromUri(
                                 itemList.get(position), 220, 220);
                     }
@@ -221,7 +219,7 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
 
     }
 
-    public void onBackPressed(){
+    public void onBackPressed() {
         Intent intent = new Intent(GaleriaAct.this, MenuActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
@@ -242,7 +240,8 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
         File folder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Pictures/Cifrasong/");
         if (!folder.exists()) {
             folder.mkdir();
-        };
+        }
+        ;
         // ##################### Criacao do toolbar e do botão de voltar
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
@@ -258,10 +257,9 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
         });
 
 
-
         //############################## IMAGENS DA CIFRA ###########################
         // Obtem o local onde as fotos sao armazenadas na memoria externa do dispositivo
-        File picsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+"/Cifrasong");
+        File picsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES + "/Cifrasong");
         // Define o local completo onde a foto sera armazenada (diretorio + arquivo)
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-HH:mm:ss");
         Date data = new Date();
@@ -270,7 +268,7 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
         Date data_atual = cal.getTime();
         String data_completa = dateFormat.format(data_atual);
 
-        this.imageFile = new File(picsDir, "CifraSong-"+data_completa+".jpg");
+        this.imageFile = new File(picsDir, "CifraSong-" + data_completa + ".jpg");
 
 
         final GridView gridview = (GridView) findViewById(R.id.gridview);
@@ -320,20 +318,21 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
     @Deprecated
     protected Dialog onCreateDialog(int id) {
         final Dialog jpgDialog = new Dialog(this);
-        switch(id){
+        switch (id) {
             case ID_JPGDIALOG:
 
                 jpgDialog.setContentView(R.layout.jpgdialog);
-                jpgdialigImage = (ImageView)jpgDialog.findViewById(R.id.image);
+                jpgdialigImage = (ImageView) jpgDialog.findViewById(R.id.image);
                 //jpgdialigText = (TextView)jpgDialog.findViewById(R.id.textpath);
 
-                Button okDialogButton = (Button)jpgDialog.findViewById(R.id.okdialogbutton);
-                okDialogButton.setOnClickListener(new OnClickListener(){
+                Button okDialogButton = (Button) jpgDialog.findViewById(R.id.okdialogbutton);
+                okDialogButton.setOnClickListener(new OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
                         jpgDialog.dismiss();
-                    }});
+                    }
+                });
                 break;
 
             default:
@@ -346,7 +345,7 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
     @Override
     @Deprecated
     protected void onPrepareDialog(int id, Dialog dialog) {
-        switch(id){
+        switch (id) {
             case ID_JPGDIALOG:
                 //jpgdialigText.setText(jpgdialigFile.getPath());
                 //Bitmap bm = BitmapFactory.decodeFile(jpgdialigFile.getPath());
@@ -390,7 +389,7 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
 
         if (height > reqHeight || width > reqWidth) {
             if (width > height) {
-                inSampleSize = Math.round((float) height/(float) reqHeight);
+                inSampleSize = Math.round((float) height / (float) reqHeight);
             } else {
                 inSampleSize = Math.round((float) width / (float) reqWidth);
             }
@@ -401,6 +400,7 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
 
     /**
      * Metodo chamado quando a aplicao nativa da camera e finalizada
+     *
      * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
      */
     @Override

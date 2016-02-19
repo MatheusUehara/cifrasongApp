@@ -16,14 +16,16 @@ import cifrasong.usuario.negocio.UsuarioService;
 public class CadastroAct extends Activity {
     final UsuarioService negocio = new UsuarioService(CadastroAct.this);
 
-    public void limpaDados(EditText login,EditText email,EditText senha,EditText confirmarSenha){
+    public void limpaDados(EditText login, EditText email, EditText senha, EditText confirmarSenha) {
         login.setText("");
         email.setText("");
         senha.setText("");
         confirmarSenha.setText("");
-    };
+    }
 
-    public void onBackPressed(){
+    ;
+
+    public void onBackPressed() {
         Intent intent = new Intent();
         intent.setClass(CadastroAct.this, LoginAct.class);
         startActivity(intent);
@@ -44,24 +46,24 @@ public class CadastroAct extends Activity {
 
         registrar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {				
-				Usuario usuario = new Usuario();
+            public void onClick(View v) {
+                Usuario usuario = new Usuario();
                 usuario.setLogin(login.getText().toString());
                 usuario.setSenha(senha.getText().toString());
                 usuario.setEmail(email.getText().toString());
                 String formConfirmarSenha = confirmarSenha.getText().toString();
 
-				try {					
-					negocio.adicionar(usuario,formConfirmarSenha);
-					Toast.makeText(CadastroAct.this,"Adicionado com sucesso.",Toast.LENGTH_SHORT).show();
-                    limpaDados(login,email,senha,confirmarSenha);
-					Intent i = new Intent();
-					i.setClass(CadastroAct.this,LoginAct.class);
+                try {
+                    negocio.adicionar(usuario, formConfirmarSenha);
+                    Toast.makeText(CadastroAct.this, "Adicionado com sucesso.", Toast.LENGTH_SHORT).show();
+                    limpaDados(login, email, senha, confirmarSenha);
+                    Intent i = new Intent();
+                    i.setClass(CadastroAct.this, LoginAct.class);
                     startActivity(i);
 
-                }catch (Exception e) {
+                } catch (Exception e) {
                     Toast.makeText(CadastroAct.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-				}
+                }
             }
         });
 
@@ -72,10 +74,10 @@ public class CadastroAct extends Activity {
             public void onClick(View v) {
                 Intent i = new Intent();
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                i.setClass(CadastroAct.this,LoginAct.class);
+                i.setClass(CadastroAct.this, LoginAct.class);
                 startActivity(i);
             }
 
-    });
+        });
     }
 }

@@ -47,19 +47,18 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.ViewHolder
         Context contxt;
 
 
-        public ViewHolder(View itemView,int ViewType,Context c) {                 // Creating ViewHolder Constructor with View and viewType As a parameter
+        public ViewHolder(View itemView, int ViewType, Context c) {                 // Creating ViewHolder Constructor with View and viewType As a parameter
             super(itemView);
             contxt = c;
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
             // Here we set the appropriate view in accordance with the the view type as passed when the holder object is created
 
-            if(ViewType == TYPE_ITEM) {
+            if (ViewType == TYPE_ITEM) {
                 textView = (TextView) itemView.findViewById(R.id.rowText); // Creating TextView object with the id of textView from menu_item_row.xmlw.xml
                 imageView = (ImageView) itemView.findViewById(R.id.rowIcon);// Creating ImageView object with the id of ImageView from menu_item_row.xmlw.xml
                 Holderid = 1;                                               // setting holder id as 1 as the object being populated are of type item row
-            }
-            else{
+            } else {
 
                 Name = (TextView) itemView.findViewById(R.id.name);         // Creating Text View object from menu_headereader.xml for name
                 email = (TextView) itemView.findViewById(R.id.email);       // Creating Text View object from menu_headereader.xml for email
@@ -67,15 +66,15 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.ViewHolder
                 Holderid = 0;                                                // Setting holder id = 0 as the object being populated are of type menu_header view
             }
         }
+
         @Override
         public void onClick(View v) {
-            Toast.makeText(contxt,"The Item Clicked is: "+getPosition(),Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(contxt, "The Item Clicked is: " + getPosition(), Toast.LENGTH_SHORT).show();
         }
 
     }
 
-    DrawerAdapter(String Titles[],int Icons[],String Name,String Email, int Profile,Context passedContext){ // DrawerAdapter Constructor with titles and icons parameter
+    DrawerAdapter(String Titles[], int Icons[], String Name, String Email, int Profile, Context passedContext) { // DrawerAdapter Constructor with titles and icons parameter
         // titles, icons, name, email, profile pic are passed from the main activity as we
         mNavTitles = Titles;                //have seen earlier
         mIcons = Icons;
@@ -95,9 +94,9 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.ViewHolder
     public DrawerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         if (viewType == TYPE_ITEM) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_item_row,parent,false); //Inflating the layout
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_item_row, parent, false); //Inflating the layout
 
-            ViewHolder vhItem = new ViewHolder(v,viewType,context); //Creating ViewHolder and passing the object of type view
+            ViewHolder vhItem = new ViewHolder(v, viewType, context); //Creating ViewHolder and passing the object of type view
 
             return vhItem; // Returning the created object
 
@@ -105,9 +104,9 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.ViewHolder
 
         } else if (viewType == TYPE_HEADER) {
 
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_header,parent,false); //Inflating the layout
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_header, parent, false); //Inflating the layout
 
-            ViewHolder vhHeader = new ViewHolder(v,viewType,context); //Creating ViewHolder and passing the object of type view
+            ViewHolder vhHeader = new ViewHolder(v, viewType, context); //Creating ViewHolder and passing the object of type view
 
             return vhHeader; //returning the object created
 
@@ -122,12 +121,11 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.ViewHolder
     // which view type is being created 1 for item row
     @Override
     public void onBindViewHolder(DrawerAdapter.ViewHolder holder, int position) {
-        if(holder.Holderid ==1) {                              // as the list view is going to be called after the menu_header view so we decrement the
+        if (holder.Holderid == 1) {                              // as the list view is going to be called after the menu_header view so we decrement the
             // position by 1 and pass it to the holder while setting the text and image
             holder.textView.setText(mNavTitles[position - 1]); // Setting the Text with the array of our Titles
-            holder.imageView.setImageResource(mIcons[position -1]);// Settimg the image with array of our icons
-        }
-        else{
+            holder.imageView.setImageResource(mIcons[position - 1]);// Settimg the image with array of our icons
+        } else {
 
             holder.profile.setImageResource(profile);           // Similarly we set the resources for menu_header view
             holder.Name.setText(name);
@@ -138,7 +136,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.ViewHolder
     // This method returns the number of items present in the list
     @Override
     public int getItemCount() {
-        return mNavTitles.length+1; // the number of items in the list will be +1 the titles including the menu_header view.
+        return mNavTitles.length + 1; // the number of items in the list will be +1 the titles including the menu_header view.
     }
 
 

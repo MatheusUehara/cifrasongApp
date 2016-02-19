@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -28,7 +27,7 @@ import cifrasong.usuario.gui.MenuActivity;
 public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActivity {
 
 
-    public void onBackPressed(){
+    public void onBackPressed() {
         cifraMusica = null;
         cifraArtista = null;
         cifraNome = null;
@@ -43,7 +42,7 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
 
 
     Toolbar toolbar;
-    public static String  cifraMusica = null;
+    public static String cifraMusica = null;
     public static String cifraArtista = null;
     public static String cifraNome = null;
 
@@ -69,7 +68,7 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
             }
         });
 
-        final TextView cifra = (TextView)findViewById(R.id.letraCifra);
+        final TextView cifra = (TextView) findViewById(R.id.letraCifra);
 
         Resources res = this.getResources();
 
@@ -78,7 +77,7 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
             cifraMusica = cifraMusica.replaceAll("</b>", "</FONT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp");
         }
 
-        String conteudo = String.format(res.getString(R.string.cifra),cifraArtista, cifraNome,cifraMusica);
+        String conteudo = String.format(res.getString(R.string.cifra), cifraArtista, cifraNome, cifraMusica);
         cifra.setText(Html.fromHtml(conteudo));
         shareWhats = Html.fromHtml(conteudo).toString();
         cifra.measure(0, 0);
@@ -110,21 +109,21 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
                 cifraNome = null;
 
                 Intent i = new Intent();
-                i.setClass(ExibeCifraPesquisaAct.this,MenuActivity.class);
+                i.setClass(ExibeCifraPesquisaAct.this, MenuActivity.class);
                 startActivity(i);
 
-            }catch (Exception e) {
+            } catch (Exception e) {
                 Toast.makeText(ExibeCifraPesquisaAct.this, "Falha ao tentar adicionar cifra.", Toast.LENGTH_SHORT).show();
             }
         }
 
-        if (id == R.id.share){
-            try{
+        if (id == R.id.share) {
+            try {
                 Intent oShareIntent = new Intent(android.content.Intent.ACTION_SEND);
                 oShareIntent.setType("text/plain");
                 oShareIntent.putExtra(Intent.EXTRA_TEXT, shareWhats + "Compartilhado via CifraSong");
                 startActivity(Intent.createChooser(oShareIntent, "Compartilhar via:"));
-            }catch(Exception e){
+            } catch (Exception e) {
                 Toast.makeText(this, "Ocorreu uma falha no compartilhamento..", Toast.LENGTH_SHORT).show();
             }
         }
@@ -137,12 +136,14 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
         return super.onOptionsItemSelected(item);
     }
 
-    public void scrollRight(final ScrollView h){
+    public void scrollRight(final ScrollView h) {
         new CountDownTimer(tamanhoRolagem, 20) {
-            public void onTick(long millisUntilFinished){
+            public void onTick(long millisUntilFinished) {
                 h.scrollTo(0, (int) (tamanhoRolagem - millisUntilFinished));
             }
-            public void onFinish() {}
+
+            public void onFinish() {
+            }
         }.start();
     }
 }
