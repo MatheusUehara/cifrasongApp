@@ -3,6 +3,7 @@ package cifrasong.usuario.gui;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
@@ -37,6 +38,7 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
 
         alertDialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
+                apagaSharedPrefs();
                 Session.setUsuarioLogado(null);
                 Intent i = new Intent(MenuActivity.this, LoginAct.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -52,6 +54,15 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
             }
         });
         alertDialogBuilder.show();
+    }
+
+    public void apagaSharedPrefs(){
+        SharedPreferences prefs = getSharedPreferences("LoginPrefs", 0);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("estaLogado", false);
+        editor.putString("login", "");
+        editor.putString("senha", "");
+        editor.commit();
     }
 
     public void onBackPressed() {
@@ -210,16 +221,14 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
                 }
                 return false;
             }
+            @Override
+            public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {            }
 
             @Override
-            public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
-            }
-
+            public void onRequestDisallowInterceptTouchEvent(boolean b) {            }
         });
 //################## Fim nav Drawer #############
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;

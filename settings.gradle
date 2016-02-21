@@ -1,1 +1,1 @@
-include ':app', ':library'
+include ':app', ':library', ':unity-ads-1.5.6'
