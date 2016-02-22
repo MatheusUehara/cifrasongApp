@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,7 +30,7 @@ public class ExibeCifraFavoritaAct extends android.support.v7.app.AppCompatActiv
 
     final CifraService negocio = new CifraService(this);
 
-    public void onBackPressed(){
+    public void onBackPressed() {
         Intent intent = new Intent(ExibeCifraFavoritaAct.this, MenuActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
@@ -59,11 +58,10 @@ public class ExibeCifraFavoritaAct extends android.support.v7.app.AppCompatActiv
         });
 
 
-
-        final TextView cifra = (TextView)findViewById(R.id.letraCifra);
+        final TextView cifra = (TextView) findViewById(R.id.letraCifra);
 
         Resources res = this.getResources();
-        String conteudo = String.format(res.getString(R.string.cifra),Session.getCifraSelecionada().getNome()," ",Session.getCifraSelecionada().getConteudo());
+        String conteudo = String.format(res.getString(R.string.cifra), Session.getCifraSelecionada().getNome(), " ", Session.getCifraSelecionada().getConteudo());
         cifra.setText(Html.fromHtml(conteudo));
         shareWhats = Html.fromHtml(conteudo).toString();
         cifra.measure(0, 0);
@@ -94,13 +92,13 @@ public class ExibeCifraFavoritaAct extends android.support.v7.app.AppCompatActiv
             }
         }
 
-        if (id == R.id.share){
-            try{
+        if (id == R.id.share) {
+            try {
                 Intent oShareIntent = new Intent(android.content.Intent.ACTION_SEND);
                 oShareIntent.setType("text/plain");
-                oShareIntent.putExtra(Intent.EXTRA_TEXT, shareWhats +"Compartilhado via CifraSong");
+                oShareIntent.putExtra(Intent.EXTRA_TEXT, shareWhats + "Compartilhado via CifraSong");
                 startActivity(Intent.createChooser(oShareIntent, "Compartilhar via:"));
-            }catch(Exception e){
+            } catch (Exception e) {
                 Toast.makeText(this, "Ocorreu uma falha no compartilhamento.", Toast.LENGTH_SHORT).show();
             }
         }
@@ -113,12 +111,14 @@ public class ExibeCifraFavoritaAct extends android.support.v7.app.AppCompatActiv
         return super.onOptionsItemSelected(item);
     }
 
-    public void scrollRight(final ScrollView h){
+    public void scrollRight(final ScrollView h) {
         new CountDownTimer(tamanhoRolagem, 20) {
-            public void onTick(long millisUntilFinished){
+            public void onTick(long millisUntilFinished) {
                 h.scrollTo(0, (int) (tamanhoRolagem - millisUntilFinished));
             }
-            public void onFinish() {}
+
+            public void onFinish() {
+            }
         }.start();
     }
 }

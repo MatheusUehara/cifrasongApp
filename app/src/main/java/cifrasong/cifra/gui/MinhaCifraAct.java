@@ -33,15 +33,15 @@ public class MinhaCifraAct extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         // AQUI É A VIEW DO FRAGMENT ALGO MUITO IMPORTANTE QUE NÃO POSSO ME ESQUECER....
-        View v =inflater.inflate(R.layout.activity_lista_cifras,container,false);
+        View v = inflater.inflate(R.layout.activity_lista_cifras, container, false);
 
         cifras = Session.getUsuarioLogado().getListaCifras();
 
         lista = (ListView) v.findViewById(R.id.minhasCifras);
         lista.setAdapter(new CifrasAdapter(getActivity()));
 
-        final TextView info = (TextView)v.findViewById(R.id.info);
-        if (Session.getUsuarioLogado().getListaCifras().size()<= 0){
+        final TextView info = (TextView) v.findViewById(R.id.info);
+        if (Session.getUsuarioLogado().getListaCifras().size() <= 0) {
             info.setVisibility(TextView.VISIBLE);
         }
 
@@ -60,18 +60,18 @@ public class MinhaCifraAct extends Fragment {
     }
 
 
-    private class CifrasAdapter extends ArrayAdapter<Cifra>{
+    private class CifrasAdapter extends ArrayAdapter<Cifra> {
         private Context ctx;
 
-        public CifrasAdapter(Context ctx){
+        public CifrasAdapter(Context ctx) {
             super(ctx, R.layout.activity_lista_favoritos, cifras);
             this.ctx = ctx;
         }
 
         @Override
-        public View getView(int position, View view, ViewGroup parent){
+        public View getView(int position, View view, ViewGroup parent) {
 
-            if (view == null){
+            if (view == null) {
                 view = getActivity().getLayoutInflater().from(this.ctx).inflate(R.layout.itens_list_view, null);
             }
 

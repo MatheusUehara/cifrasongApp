@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -34,7 +33,7 @@ public class PesquisaArtistaAct extends android.support.v7.app.AppCompatActivity
     ArrayAdapter cifrasAdapter;
     ListView lista;
 
-    public void onBackPressed(){
+    public void onBackPressed() {
         Intent intent = new Intent();
         intent.setClass(PesquisaArtistaAct.this, MenuActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -84,18 +83,18 @@ public class PesquisaArtistaAct extends android.support.v7.app.AppCompatActivity
     }
 
 
-    private class CifrasAdapter extends ArrayAdapter<Cifra>{
+    private class CifrasAdapter extends ArrayAdapter<Cifra> {
         private Context ctx;
 
-        public CifrasAdapter(Context ctx){
+        public CifrasAdapter(Context ctx) {
             super(ctx, R.layout.activity_lista_cifras, cifras);
             this.ctx = ctx;
         }
 
         @Override
-        public View getView(int position, View view, ViewGroup parent){
+        public View getView(int position, View view, ViewGroup parent) {
 
-            if (view == null){
+            if (view == null) {
                 view = getLayoutInflater().from(this.ctx).inflate(R.layout.itens_list_view, null);
             }
 
@@ -106,7 +105,6 @@ public class PesquisaArtistaAct extends android.support.v7.app.AppCompatActivity
             nomeCifra.setText(cifra.getNome());
             artistaCifra.setText(cifra.getArtista());
             return view;
-
         }
     }
 } 	

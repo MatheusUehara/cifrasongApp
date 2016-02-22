@@ -8,7 +8,7 @@ import cifrasong.database.DAO;
 import cifrasong.usuario.dominio.Session;
 import cifrasong.usuario.dominio.Usuario;
 
-public class UsuarioDAO extends DAO{
+public class UsuarioDAO extends DAO {
 
     private static final UsuarioDAO instance = new UsuarioDAO();
 
@@ -16,13 +16,15 @@ public class UsuarioDAO extends DAO{
         super();
     }
 
-    public static UsuarioDAO getInstance(){
+    public static UsuarioDAO getInstance() {
         return instance;
     }
 
     private static CifraSongSQLiteHelper database = getDataBaseHelper();
 
-    /**metodo que adiciona o usuario no banco de dados
+    /**
+     * metodo que adiciona o usuario no banco de dados
+     *
      * @param usuario
      */
     public void adicionarUsuario(Usuario usuario) {
@@ -35,17 +37,19 @@ public class UsuarioDAO extends DAO{
         close();
     }
 
-    /**consulta no banco se os dados de login/senha ou email/senha conferem com os digitados
+    /**
+     * consulta no banco se os dados de login/senha ou email/senha conferem com os digitados
+     *
      * @param senha
      * @param login
      * @return condition
      */
-    public Usuario login(String login, String senha){
+    public Usuario login(String login, String senha) {
         Usuario condition = null;
         open();
-        Cursor mCursor = getDatabase().rawQuery("SELECT * FROM " + database.getTableNameUsuario() + " WHERE login=? AND senha=?", new String[]{login,senha});
-        Cursor mCursor1 = getDatabase().rawQuery("SELECT * FROM " + database.getTableNameUsuario() + " WHERE email=? AND senha=?", new String[]{login,senha});
-        if (((mCursor != null) && (mCursor.getCount() > 0))||((mCursor1 != null) && (mCursor1.getCount() > 0))) {
+        Cursor mCursor = getDatabase().rawQuery("SELECT * FROM " + database.getTableNameUsuario() + " WHERE login=? AND senha=?", new String[]{login, senha});
+        Cursor mCursor1 = getDatabase().rawQuery("SELECT * FROM " + database.getTableNameUsuario() + " WHERE email=? AND senha=?", new String[]{login, senha});
+        if (((mCursor != null) && (mCursor.getCount() > 0)) || ((mCursor1 != null) && (mCursor1.getCount() > 0))) {
             if (((mCursor != null) && (mCursor.getCount() > 0))) {
                 mCursor.moveToFirst();
                 Usuario novoUsuario = new Usuario();
@@ -55,7 +59,7 @@ public class UsuarioDAO extends DAO{
                 novoUsuario.setSenha(mCursor.getString(mCursor.getColumnIndex(database.getSenha())));
                 condition = novoUsuario;
                 close();
-            }else if (((mCursor1 != null) && (mCursor1.getCount() > 0))) {
+            } else if (((mCursor1 != null) && (mCursor1.getCount() > 0))) {
                 mCursor1.moveToFirst();
                 Usuario novoUsuario = new Usuario();
                 novoUsuario.setID(mCursor1.getInt(mCursor1.getColumnIndex(database.getIdUsuario())));
@@ -69,11 +73,13 @@ public class UsuarioDAO extends DAO{
         return condition;
     }
 
-    /**metodo que confere se ja existe o e-mail cadastrado
+    /**
+     * metodo que confere se ja existe o e-mail cadastrado
+     *
      * @param usuario
-     * @return  condition
+     * @return condition
      */
-    public boolean existeEmail(Usuario usuario){
+    public boolean existeEmail(Usuario usuario) {
         boolean condition = false;
         open();
         Cursor mCursor = getDatabase().rawQuery("SELECT * FROM " + database.getTableNameUsuario() + " WHERE email=?", new String[]{(usuario.getEmail())});
@@ -85,11 +91,13 @@ public class UsuarioDAO extends DAO{
         return condition;
     }
 
-    /**metodo que confere se exite o usuario cadastrado
+    /**
+     * metodo que confere se exite o usuario cadastrado
+     *
      * @param usuario
-     * @return  condition
+     * @return condition
      */
-    public boolean existeUsuario(Usuario usuario){
+    public boolean existeUsuario(Usuario usuario) {
         boolean condition = false;
         open();
         Cursor mCursor = getDatabase().rawQuery("SELECT * FROM " + database.getTableNameUsuario() + " WHERE login=?", new String[]{(usuario.getLogin())});
@@ -102,7 +110,9 @@ public class UsuarioDAO extends DAO{
         return condition;
     }
 
-    /**metodo que exclui o usuario do banco de dados
+    /**
+     * metodo que exclui o usuario do banco de dados
+     *
      * @param usuario
      * @return true
      */
@@ -113,23 +123,27 @@ public class UsuarioDAO extends DAO{
         return true;
     }
 
-    /**metodo que altera a senha
+    /**
+     * metodo que altera a senha
+     *
      * @param senha
      * @return true
      */
-    public boolean alterarSenha(String senha){
+    public boolean alterarSenha(String senha) {
         open();
         getDatabase().execSQL("UPDATE  " + database.getTableNameUsuario() + " SET " + database.getSenha() + " = ? WHERE login = ?", new String[]{senha, Session.usuarioLogado.getLogin()});
         close();
         return true;
     }
 
-    /**metodo que altera o e-mail ja existene pelo novo e atualiza
+    /**
+     * metodo que altera o e-mail ja existene pelo novo e atualiza
+     *
      * @param email
      */
-    public void alterarEmail(String email){
+    public void alterarEmail(String email) {
         open();
-        getDatabase().execSQL("UPDATE  " + database.getTableNameUsuario() + " SET " + database.getEmail() + " = ?  WHERE login = ?", new String[]{email,Session.usuarioLogado.getLogin()});
+        getDatabase().execSQL("UPDATE  " + database.getTableNameUsuario() + " SET " + database.getEmail() + " = ?  WHERE login = ?", new String[]{email, Session.usuarioLogado.getLogin()});
         close();
     }
 

@@ -1,20 +1,24 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/alterarsenha_launcher">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
+        <include
+            android:id="@+id/tool_bar"
+            layout="@layout/tool_bar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Digite sua senha atual"
-            android:textColor="#ffffffff"
             android:id="@+id/textoSenha"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="90dp" />
@@ -27,7 +31,6 @@
             android:id="@+id/senhaAtual"
             android:layout_centerVertical="true"
             android:textCursorDrawable="@drawable/cursor"
-            android:textColor="#ffffffff"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp" />
 
@@ -36,7 +39,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Digite a sua nova senha"
-            android:textColor="#ffffffff"
+            android:textStyle="bold"
             android:id="@+id/textoNovaSenha"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp" />
@@ -49,16 +52,15 @@
             android:id="@+id/senhaNova"
             android:layout_centerVertical="true"
             android:textCursorDrawable="@drawable/cursor"
-            android:textColor="#ffffffff"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Confirme a sua nova senha"
-            android:textColor="#ffffffff"
             android:id="@+id/textoNovaSenhaConfirm"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp" />
@@ -71,7 +73,6 @@
             android:id="@+id/senhaNovaConfirmacao"
             android:layout_centerVertical="true"
             android:textCursorDrawable="@drawable/cursor"
-            android:textColor="#ffffffff"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp" />
 
@@ -79,9 +80,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/salvar"
-            android:textColor="#ffffffff"
-            android:background="@drawable/ic_launcher_salvar"
+            android:textStyle="bold"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#1976d2"
+            android:textColor="#fff"
+            android:text="SALVAR" />
     </LinearLayout>
 </RelativeLayout>

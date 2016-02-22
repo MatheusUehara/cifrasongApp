@@ -48,12 +48,16 @@
                 android:layout_height="wrap_content"/>
                 s
             -->
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Digite o artista ou banda"
-
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
                 android:id="@+id/textView56" />
 
             <AutoCompleteTextView
@@ -63,16 +67,20 @@
                 android:inputType="textEmailAddress"
                 android:completionThreshold="1"
                 android:id="@+id/nomeArtista"
-
+                android:textAlignment="center"
+                android:enabled="true"
+                android:focusable="true"
+                android:typeface="sans"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView3" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Digite sua Música"
-
                 android:id="@+id/textView4" />
 
             <EditText
@@ -81,23 +89,28 @@
                 android:inputType="textEmailAddress"
                 android:ems="10"
                 android:id="@+id/nomeMusica"
-
+                android:textAlignment="center"
+                android:enabled="true"
+                android:focusable="true"
+                android:typeface="sans"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textCursorDrawable="@drawable/cursor"
                 android:layout_below="@+id/textView3" />
 
-            
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_launcher_pesquisar"
+                android:text="Pesquisar Cifras"
                 android:id="@+id/pesquisar"
+                android:backgroundTint="#1976d2"
+                android:textColor="#fff"
+                android:typeface="sans"
+                android:textStyle="bold"
                 android:layout_below="@+id/scrollView"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-            />
+                android:layout_marginTop="10dp"/>
 
             <ProgressBar
                 android:layout_width="fill_parent"

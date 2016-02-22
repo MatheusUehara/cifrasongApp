@@ -12,11 +12,13 @@ public class Cifra {
     private String conteudo;
 
 
-    public Cifra(){}
+    public Cifra() {
+    }
 
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -24,6 +26,7 @@ public class Cifra {
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -31,6 +34,7 @@ public class Cifra {
     public String getArtista() {
         return artista;
     }
+
     public void setArtista(String artista) {
         this.artista = artista;
     }
@@ -38,6 +42,7 @@ public class Cifra {
     public int getFavorito() {
         return favorito;
     }
+
     public void setFavorito(int favorito) {
         this.favorito = favorito;
     }
@@ -45,6 +50,7 @@ public class Cifra {
     public String getConteudo() {
         return conteudo;
     }
+
     public void setConteudo(String conteudo) {
         this.conteudo = conteudo;
     }

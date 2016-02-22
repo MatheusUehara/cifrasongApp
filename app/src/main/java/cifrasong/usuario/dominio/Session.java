@@ -10,25 +10,33 @@ import cifrasong.cifra.dominio.Cifra;
 
 public class Session {
 
-    public static Cifra cifraSelecionada ;
+    public static Cifra cifraSelecionada;
 
     public static Usuario usuarioLogado;
 
     private static Context contexto = null;
 
-    public static void setCifraSelecionada(Cifra cifra){cifraSelecionada = cifra;}
+    public static void setCifraSelecionada(Cifra cifra) {
+        cifraSelecionada = cifra;
+    }
 
-    public static Cifra getCifraSelecionada(){return cifraSelecionada;}
+    public static Cifra getCifraSelecionada() {
+        return cifraSelecionada;
+    }
 
-    public static void setUsuarioLogado(Usuario usuario){
+    public static void setUsuarioLogado(Usuario usuario) {
         usuarioLogado = usuario;
     }
 
-    public static Usuario getUsuarioLogado(){
+    public static Usuario getUsuarioLogado() {
         return usuarioLogado;
     }
 
-    public static void setContexto(Context context){contexto = context;}
+    public static void setContexto(Context context) {
+        contexto = context;
+    }
 
-    public static Context getContexto(){return contexto;}
+    public static Context getContexto() {
+        return contexto;
+    }
 }

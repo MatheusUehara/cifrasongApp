@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,8 +29,8 @@ public class PesquisaAct extends android.support.v7.app.AppCompatActivity {
     static PesquisaCifraAsync pesquisa;
     static PesquisaArtistaAsync pesquisaArtista;
 
-    public void onBackPressed(){
-        Intent intent = new Intent(PesquisaAct.this,MenuActivity.class);
+    public void onBackPressed() {
+        Intent intent = new Intent(PesquisaAct.this, MenuActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
@@ -58,7 +57,7 @@ public class PesquisaAct extends android.support.v7.app.AppCompatActivity {
         List<String> artistas = new ArrayList<String>();
         artistas.add(ArtistasEnum.busca.values().toString());
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,artistas);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, artistas);
 
         final Button pesquisar = (Button) findViewById(R.id.pesquisar);
         final EditText nomeMusica = (EditText) findViewById(R.id.nomeMusica);
@@ -106,7 +105,7 @@ public class PesquisaAct extends android.support.v7.app.AppCompatActivity {
         });
     }
 
-    private String tiraChar (String input){
+    private String tiraChar(String input) {
         String text;
         text = Normalizer.normalize(input, Normalizer.Form.NFD);
         text = text.replaceAll("[^\\p{ASCII}]", "");

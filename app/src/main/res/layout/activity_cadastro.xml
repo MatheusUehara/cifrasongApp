@@ -2,97 +2,138 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/cadastrar_launcher">
+    android:background="#15538c">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_gravity="center"
-        android:id="@+id/linearlayout1">
+        android:gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Login"
-            android:id="@+id/textView5"
-            android:textColor="#ffffffff"
-            android:layout_marginTop="90dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="REGISTRO"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textColor="#FFF" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:layout_height="40dp"
             android:id="@+id/login"
             android:textCursorDrawable="@drawable/cursor"
             android:layout_gravity="center_horizontal"
-            android:textColor="#ffffffff" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="E-mail"
-            android:id="@+id/textView"
-            android:textColor="#ffffffff" />
+            android:textColor="#000000"
+            android:hint="Usuário"
+            android:background="#f7f1f1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:inputType="textPersonName"
+            android:layout_marginTop="10dp" />
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:inputType="textEmailAddress"
             android:ems="10"
             android:id="@+id/email"
             android:textCursorDrawable="@drawable/cursor"
             android:layout_gravity="center_horizontal"
-            android:textColor="#ffffffff" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Senha"
-            android:id="@+id/textView6"
-            android:textColor="#ffffffff" />
+            android:textColor="#000000"
+            android:hint="Email"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#f7f1f1"
+            android:gravity="center_vertical|center_horizontal"
+            android:typeface="sans" />
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/senha"
             android:textCursorDrawable="@drawable/cursor"
             android:layout_gravity="center_horizontal"
-            android:textColor="#ffffffff" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Confirmar Senha"
-            android:id="@+id/textView7"
-            android:textColor="#ffffffff" />
+            android:textColor="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#f7f1f1"
+            android:hint="Crie uma Senha"
+            android:password="true"
+            android:gravity="center_vertical|center_horizontal"
+            android:typeface="monospace" />
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
+            android:layout_height="40dp"
             android:ems="10"
             android:id="@+id/confirmarSenha"
             android:textCursorDrawable="@drawable/cursor"
             android:layout_gravity="center_horizontal"
-            android:textColor="#ffffffff" />
-
-        <Button
-            android:layout_width="wrap_content"
+            android:textColor="#000000"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#f7f1f1"
+            android:hint="Repita a senha"
+            android:password="true"
+            android:inputType="textPassword"
+            android:gravity="center_vertical|center_horizontal" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/registrar"
-            android:background="@drawable/ic_launcher_cadastrarse"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <Button
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:text="VOLTAR"
+                    android:id="@+id/voltar"
+                    android:backgroundTint="#f7f1f1"
+                    android:textColor="#15538c"
+                    android:layout_gravity="left" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Registrar-se"
+                    android:id="@+id/registrar"
+                    android:backgroundTint="#1976d2"
+                    android:textColor="#fff"
+                    android:layout_gravity="center_horizontal|right"
+                    android:typeface="sans"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
         </LinearLayout>
+    </LinearLayout>
+
+
+    </LinearLayout>
 
 
 </RelativeLayout>

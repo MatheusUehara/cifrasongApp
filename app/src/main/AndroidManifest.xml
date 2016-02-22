@@ -7,8 +7,8 @@
 
     <!-- Permissão para acessar a área de memória externa -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- Permissão pra ler a memoria externa-->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!-- Permissão pra ler a memoria externa -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <!-- Permissão para acessar a câmera diretamente -->
     <uses-permission android:name="android.permission.CAMERA" />
@@ -113,6 +113,8 @@
         <activity
             android:name=".cifra.gui.GaleriaAct"
             android:label="@string/title_activity_galeria" >
+        </activity>
+        <activity android:name=".usuario.gui.ConfiguracaoAct" >
         </activity>
     </application>
 
