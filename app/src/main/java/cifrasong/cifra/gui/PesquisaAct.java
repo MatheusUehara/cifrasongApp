@@ -54,10 +54,7 @@ public class PesquisaAct extends android.support.v7.app.AppCompatActivity {
             }
         });
 
-        List<String> artistas = new ArrayList<String>();
-        artistas.add(ArtistasEnum.busca.values().toString());
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, artistas);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ListaArtistas.artistas);
 
         final Button pesquisar = (Button) findViewById(R.id.pesquisar);
         final EditText nomeMusica = (EditText) findViewById(R.id.nomeMusica);
