@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
-    <file url="file://$PROJECT_DIR$/app/src/main/java/cifrasong/cifra/gui/ExibeCifraAct.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/cifrasong/cifra/gui/GaleriaAct.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/cifrasong/usuario/gui/ConfiguracaoAct.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/cifrasong/usuario/gui/ContatoAct.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/cifrasong/usuario/gui/EditarEmailAct.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/cifrasong/usuario/gui/EditarSenhaAct.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/cifrasong/usuario/gui/MenuActivity.java" charset="UTF-8" />
+  <component name="Encoding">
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
