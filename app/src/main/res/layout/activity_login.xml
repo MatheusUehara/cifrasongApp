@@ -73,6 +73,17 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp" />
 
+            <CheckBox
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Permanecer logado"
+                android:id="@+id/checkBox"
+                android:textColor="#fff"
+                android:layout_gravity="center_horizontal"
+                android:checked="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp" />
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"

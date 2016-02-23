@@ -3,6 +3,7 @@ package cifrasong.usuario.gui;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
@@ -19,6 +20,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.appodeal.ads.Appodeal;
+import com.appodeal.ads.InterstitialCallbacks;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import cifrasong.R;
@@ -37,11 +40,38 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
 
         alertDialogBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                Session.setUsuarioLogado(null);
-                Intent i = new Intent(MenuActivity.this, LoginAct.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
                 dialog.dismiss();
+                Appodeal.show(MenuActivity.this, Appodeal.INTERSTITIAL);
+                Appodeal.setInterstitialCallbacks(new InterstitialCallbacks() {
+                    @Override
+                    public void onInterstitialLoaded(boolean b) {
+
+                    }
+
+                    @Override
+                    public void onInterstitialFailedToLoad() {
+
+                    }
+
+                    @Override
+                    public void onInterstitialShown() {
+
+                    }
+
+                    @Override
+                    public void onInterstitialClicked() {
+
+                    }
+
+                    @Override
+                    public void onInterstitialClosed() {
+                        apagaSharedPrefs();
+                        Session.setUsuarioLogado(null);
+                        Intent i = new Intent(MenuActivity.this, LoginAct.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i);
+                    }
+                });
             }
         });
 
@@ -52,6 +82,15 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
             }
         });
         alertDialogBuilder.show();
+    }
+
+    public void apagaSharedPrefs(){
+        SharedPreferences prefs = getSharedPreferences("LoginPrefs", 0);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("estaLogado", false);
+        editor.putString("login", "");
+        editor.putString("senha", "");
+        editor.commit();
     }
 
     public void onBackPressed() {
@@ -86,12 +125,18 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
 
-// ##################### Criacao do toolbar
+        // ##################### Criacao do toolbar
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
-//####################### Sliding tabs adapter ####################
+        //############# APPODEAL
+        String appKey = "0a6f6be95ac7165ee7159315b8a5ef8d171b62b8fdfc77e9";
+        Appodeal.initialize(this, appKey, Appodeal.INTERSTITIAL | Appodeal.BANNER);
+        Appodeal.show(this,Appodeal.BANNER_BOTTOM);
+        Appodeal.setTesting(true);
+
+        //####################### Sliding tabs adapter ####################
 
         // Creating The ViewPagerAdapter and Passing Fragment Manager, Titles fot the Tabs and Number Of Tabs.
         adapter = new ViewPagerAdapter(getSupportFragmentManager(), Titles, Numboftabs);
@@ -210,16 +255,19 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
                 }
                 return false;
             }
-
             @Override
-            public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
-            }
+            public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {            }
+
 
         });
 //################## Fim nav Drawer #############
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        Appodeal.onResume(this, Appodeal.BANNER_BOTTOM);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;

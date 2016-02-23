@@ -1,6 +1,7 @@
 package cifrasong.usuario.negocio;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
