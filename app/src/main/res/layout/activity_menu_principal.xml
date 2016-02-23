@@ -35,18 +35,19 @@
                 android:id="@+id/pager"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:layout_marginBottom="40dp">
             </android.support.v4.view.ViewPager>
 
             <com.getbase.floatingactionbutton.FloatingActionsMenu
                 android:id="@+id/multiple_actions"
-                android:layout_width="158dp"
-                android:layout_height="138dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 fab:fab_addButtonColorNormal="@color/primary"
                 fab:fab_addButtonColorPressed="@color/white_pressed"
                 fab:fab_addButtonPlusIconColor="@color/white"
                 fab:fab_labelStyle="@style/menu_labels_style"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="36dp"
                 android:layout_marginRight="16dp"
                 android:layout_gravity="right|bottom">
 

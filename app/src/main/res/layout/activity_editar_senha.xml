@@ -20,8 +20,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Digite sua senha atual"
             android:id="@+id/textoSenha"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="90dp" />
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp" />
 
         <EditText
             android:layout_width="match_parent"
@@ -41,8 +41,8 @@
             android:text="Digite a sua nova senha"
             android:textStyle="bold"
             android:id="@+id/textoNovaSenha"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp" />
 
         <EditText
             android:layout_width="match_parent"
@@ -62,8 +62,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Confirme a sua nova senha"
             android:id="@+id/textoNovaSenhaConfirm"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp" />
 
         <EditText
             android:layout_width="match_parent"

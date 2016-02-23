@@ -110,7 +110,6 @@
     <orderEntry type="library" exported="" name="applovin-6.1.5" level="project" />
     <orderEntry type="library" exported="" name="my-target-4.2.0" level="project" />
     <orderEntry type="library" exported="" name="flurry-analytics-6.2.0" level="project" />
-    <orderEntry type="library" exported="" name="android-support-v7-recyclerview-22.2.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-location-8.4.0" level="project" />
     <orderEntry type="library" exported="" name="circleimageview-1.2.1" level="project" />
     <orderEntry type="library" exported="" name="yandex-metrica-2.30" level="project" />

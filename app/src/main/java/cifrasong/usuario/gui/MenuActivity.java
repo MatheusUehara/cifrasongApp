@@ -107,7 +107,7 @@ public class MenuActivity extends android.support.v7.app.AppCompatActivity {
     int Numboftabs = 2;
 
     String TITLES1[] = {"Galeria de Cifras", "Configurações", "Contato", "Sair"};
-    int ICONS[] = {R.drawable.ic_action_galeria, R.drawable.ic_action_sobre, R.drawable.ic_action_sobre, R.drawable.ic_action_sair};
+    int ICONS[] = {R.drawable.ic_action_galeria, R.drawable.ic_settings, R.drawable.ic_action_sobre, R.drawable.ic_action_sair};
 
     String NAME = Session.getUsuarioLogado().getLogin();
     String EMAIL = Session.getUsuarioLogado().getEmail();

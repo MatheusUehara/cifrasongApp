@@ -5,19 +5,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Point;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.widget.Toolbar;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -45,8 +49,8 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
     static final int ID_JPGDIALOG = 0;
     ImageView jpgdialigImage;
     File jpgdialigFile;
-    final int DIALOG_IMAGE_WIDTH = 500;
-    final int DIALOG_IMAGE_HEIGHT = 350;
+    int DIALOG_IMAGE_WIDTH;
+    int DIALOG_IMAGE_HEIGHT;
 
 
     public class AsyncTaskLoadFiles extends AsyncTask<Void, String, Void> {
@@ -349,6 +353,22 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
             case ID_JPGDIALOG:
                 //jpgdialigText.setText(jpgdialigFile.getPath());
                 //Bitmap bm = BitmapFactory.decodeFile(jpgdialigFile.getPath());
+                int measuredWidth = 0;
+                int measuredHeight = 0;
+                WindowManager w = getWindowManager();
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+                    Point size = new Point();
+                    w.getDefaultDisplay().getSize(size);
+                    measuredWidth = size.x;
+                    measuredHeight = size.y;
+                } else {
+                    Display d = w.getDefaultDisplay();
+                    measuredWidth = d.getWidth();
+                    measuredHeight = d.getHeight();
+                }
+                DIALOG_IMAGE_HEIGHT = (int) ((measuredHeight)-(measuredHeight*0.1));
+                DIALOG_IMAGE_WIDTH = (int) ((measuredWidth) - (measuredWidth*0.1));
                 Bitmap bm = decodeSampledBitmapFromUri(jpgdialigFile.getPath(),
                         DIALOG_IMAGE_WIDTH, DIALOG_IMAGE_HEIGHT);
                 jpgdialigImage.setImageBitmap(bm);
