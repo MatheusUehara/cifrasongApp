@@ -34,8 +34,9 @@ public class PesquisaArtistaAct extends android.support.v7.app.AppCompatActivity
     ListView lista;
 
     public void onBackPressed() {
+        cifras = null;
         Intent intent = new Intent();
-        intent.setClass(PesquisaArtistaAct.this, MenuActivity.class);
+        intent.setClass(PesquisaArtistaAct.this, PesquisaAct.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
@@ -54,7 +55,8 @@ public class PesquisaArtistaAct extends android.support.v7.app.AppCompatActivity
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(PesquisaArtistaAct.this, MenuActivity.class);
+                cifras = null;
+                Intent i = new Intent(PesquisaArtistaAct.this, PesquisaAct.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
             }
@@ -77,6 +79,7 @@ public class PesquisaArtistaAct extends android.support.v7.app.AppCompatActivity
                 texto.setText("Aguarde a busca.");
                 PesquisaCifraAsync pesquisa = new PesquisaCifraAsync(PesquisaArtistaAct.this, progress, texto, negocio.montaLink(cifraSelecionada.getArtista() + "/" + cifraSelecionada.getNome()), button);
                 ExibeCifraPesquisaAct.cifraNome = cifraSelecionada.getNome();
+                ExibeCifraPesquisaAct.cifraArtista = cifraSelecionada.getArtista();
                 pesquisa.execute();
             }
         });

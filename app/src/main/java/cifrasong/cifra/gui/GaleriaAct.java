@@ -136,13 +136,11 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
 
         @Override
         public Object getItem(int position) {
-            // TODO Auto-generated method stub
             return itemList.get(position);
         }
 
         @Override
         public long getItemId(int position) {
-            // TODO Auto-generated method stub
             return 0;
         }
 
@@ -192,7 +190,6 @@ public class GaleriaAct extends android.support.v7.app.AppCompatActivity {
                         }
                         haveThumbNail = true;
                     } catch (IOException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
 

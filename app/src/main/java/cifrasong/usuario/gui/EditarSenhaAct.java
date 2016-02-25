@@ -17,9 +17,7 @@ public class EditarSenhaAct extends android.support.v7.app.AppCompatActivity {
     Toolbar toolbar;
 
     public void onBackPressed() {
-        Intent intent = new Intent(EditarSenhaAct.this, ConfiguracaoAct.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -33,9 +31,7 @@ public class EditarSenhaAct extends android.support.v7.app.AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(EditarSenhaAct.this, ConfiguracaoAct.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
+                finish();
             }
         });
 
@@ -52,9 +48,7 @@ public class EditarSenhaAct extends android.support.v7.app.AppCompatActivity {
                 try {
                     if (negocio.editarSenha(novaSenha.getText().toString(), confirmarSenhaNova.getText().toString(), senha.getText().toString())) {
                         Toast.makeText(EditarSenhaAct.this, "Senha alterada com sucesso.", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent();
-                        i.setClass(EditarSenhaAct.this, MenuActivity.class);
-                        startActivity(i);
+                        finish();
                     }
                 } catch (Exception e) {
                     Toast.makeText(EditarSenhaAct.this, e.getMessage(), Toast.LENGTH_SHORT).show();
