@@ -76,7 +76,7 @@ public class PesquisaArtistaAct extends android.support.v7.app.AppCompatActivity
                 Cifra cifraSelecionada = (Cifra) lista.getItemAtPosition(i);
                 texto.setText("Aguarde a busca.");
                 PesquisaCifraAsync pesquisa = new PesquisaCifraAsync(PesquisaArtistaAct.this, progress, texto, negocio.montaLink(cifraSelecionada.getArtista() + "/" + cifraSelecionada.getNome()), button);
-                ExibeCifraPesquisaAct.cifraNome = cifraSelecionada.getNome().toUpperCase();
+                ExibeCifraPesquisaAct.cifraNome = cifraSelecionada.getNome();
                 pesquisa.execute();
             }
         });

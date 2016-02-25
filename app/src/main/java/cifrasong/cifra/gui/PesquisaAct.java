@@ -13,8 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.Normalizer;
-import java.util.ArrayList;
-import java.util.List;
 
 import cifrasong.R;
 import cifrasong.cifra.negocio.CifraService;
@@ -65,12 +63,16 @@ public class PesquisaAct extends android.support.v7.app.AppCompatActivity {
 
         nomeArtista.setAdapter(adapter);
 
+
         pesquisar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String sufixo = tiraChar(nomeArtista.getText().toString()) + "/" + tiraChar(nomeMusica.getText().toString());
-                ExibeCifraPesquisaAct.cifraArtista = nomeArtista.getText().toString();
-                ExibeCifraPesquisaAct.cifraNome = nomeMusica.getText().toString();
+                for (int i=0; i < ListaArtistas.listaExibicao.length; i++) {
+                    if (nomeArtista.getText().toString().matches(ListaArtistas.listaExibicao[i].toLowerCase())) {
+                        ExibeCifraPesquisaAct.cifraArtista = ListaArtistas.listaExibicao[i];
+                    }
+                }
 
                 pesquisa = new PesquisaCifraAsync(PesquisaAct.this, progress, texto, negocio.montaLink(sufixo), pesquisar);
 

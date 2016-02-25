@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import cifrasong.R;
-import cifrasong.usuario.negocio.UsuarioService;
+import cifrasong.usuario.negocio.   UsuarioService;
 
 
 public class LoginAct extends Activity {

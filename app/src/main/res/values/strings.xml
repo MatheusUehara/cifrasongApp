@@ -24,11 +24,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_menu">CifraSong</string>
     <string name="lista_cifras_act">Minhas Cifras</string>
-
+    <string name="delete">Delete</string>
 
     <string name="title_section1">Editar Dados</string>
     <string name="title_section2">Sobre</string>
     <string name="title_section3">Sair</string>
     <string name="title_activity_galeria">Galeria de Cifras</string>
+
 
 </resources>
