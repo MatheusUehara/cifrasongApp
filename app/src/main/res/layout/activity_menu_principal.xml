@@ -39,28 +39,16 @@
                 android:layout_marginBottom="40dp">
             </android.support.v4.view.ViewPager>
 
-            <com.getbase.floatingactionbutton.FloatingActionsMenu
-                android:id="@+id/multiple_actions"
+            <com.getbase.floatingactionbutton.AddFloatingActionButton
+                android:id="@+id/action_a"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                fab:fab_addButtonColorNormal="@color/primary"
-                fab:fab_addButtonColorPressed="@color/white_pressed"
-                fab:fab_addButtonPlusIconColor="@color/white"
-                fab:fab_labelStyle="@style/menu_labels_style"
-                android:layout_marginBottom="36dp"
-                android:layout_marginRight="16dp"
-                android:layout_gravity="right|bottom">
-
-                <com.getbase.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/action_a"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    fab:fab_colorNormal="@color/white"
-                    fab:fab_title="Adicionar Cifra"
-                    fab:fab_colorPressed="@color/white_pressed"
-                    fab:fab_icon="@drawable/ic_action_pesquisar"/>
-                </com.getbase.floatingactionbutton.FloatingActionsMenu>
-
+                fab:fab_title="Adicionar Cifra"
+                fab:fab_colorNormal="@color/primary"
+                fab:fab_colorPressed="@color/white_pressed"
+                android:layout_gravity="right|bottom"
+                android:layout_marginBottom="40dp"
+                android:layout_marginRight="15dp" />
         </FrameLayout>
     </LinearLayout>
 

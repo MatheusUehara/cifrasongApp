@@ -19,9 +19,7 @@ public class ContatoAct extends android.support.v7.app.AppCompatActivity {
     EditText txtMessage;
 
     public void onBackPressed() {
-        Intent intent = new Intent(ContatoAct.this, MenuActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -55,9 +53,7 @@ public class ContatoAct extends android.support.v7.app.AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ContatoAct.this, MenuActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
+                finish();
             }
         });
     }

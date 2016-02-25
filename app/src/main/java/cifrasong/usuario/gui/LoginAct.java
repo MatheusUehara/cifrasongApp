@@ -79,9 +79,4 @@ public class LoginAct extends Activity {
         });
     }
 
-    public static void settaLogin(String login, String senha){
-
-
-    }
-
 }
