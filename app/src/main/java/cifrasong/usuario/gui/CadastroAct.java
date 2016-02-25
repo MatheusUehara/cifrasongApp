@@ -26,9 +26,7 @@ public class CadastroAct extends Activity {
     ;
 
     public void onBackPressed() {
-        Intent intent = new Intent();
-        intent.setClass(CadastroAct.this, LoginAct.class);
-        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -56,11 +54,7 @@ public class CadastroAct extends Activity {
                 try {
                     negocio.adicionar(usuario, formConfirmarSenha);
                     Toast.makeText(CadastroAct.this, "Adicionado com sucesso.", Toast.LENGTH_SHORT).show();
-                    limpaDados(login, email, senha, confirmarSenha);
-                    Intent i = new Intent();
-                    i.setClass(CadastroAct.this, LoginAct.class);
-                    startActivity(i);
-
+                    finish();
                 } catch (Exception e) {
                     Toast.makeText(CadastroAct.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -72,10 +66,7 @@ public class CadastroAct extends Activity {
         voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent();
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                i.setClass(CadastroAct.this, LoginAct.class);
-                startActivity(i);
+                finish();
             }
 
         });

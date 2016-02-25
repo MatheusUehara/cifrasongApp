@@ -8,7 +8,7 @@
         android:title="Excluir"
         android:orderInCategory="3"
         CifraSong:showAsAction="ifRoom"
-        android:icon="@drawable/ic_launcher_delete"
+        android:icon="@drawable/ic_desfavoritar"
         />
 
     <item android:id="@+id/share"

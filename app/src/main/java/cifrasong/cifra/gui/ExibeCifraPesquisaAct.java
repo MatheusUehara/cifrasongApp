@@ -28,14 +28,7 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
 
 
     public void onBackPressed() {
-        cifraMusica = null;
-        cifraArtista = null;
-        cifraNome = null;
-
-        Intent intent = new Intent(ExibeCifraPesquisaAct.this, PesquisaAct.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-
+        finish();
     }
 
     final CifraService negocio = new CifraService(ExibeCifraPesquisaAct.this);
@@ -62,9 +55,7 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ExibeCifraPesquisaAct.this, PesquisaAct.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(i);
+                finish();
             }
         });
 
@@ -103,15 +94,7 @@ public class ExibeCifraPesquisaAct extends android.support.v7.app.AppCompatActiv
             try {
                 negocio.adicionarCifra(cifraA);
                 Toast.makeText(ExibeCifraPesquisaAct.this, "Cifra Adicionada com sucesso.", Toast.LENGTH_SHORT).show();
-
-                cifraMusica = null;
-                cifraArtista = null;
-                cifraNome = null;
-
-                Intent i = new Intent();
-                i.setClass(ExibeCifraPesquisaAct.this, MenuActivity.class);
-                startActivity(i);
-
+                finish();
             } catch (Exception e) {
                 Toast.makeText(ExibeCifraPesquisaAct.this, "Falha ao tentar adicionar cifra.", Toast.LENGTH_SHORT).show();
             }
